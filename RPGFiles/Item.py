@@ -9,6 +9,7 @@ class Item:
         global ITEM
         ITEM[name] = self
         self.name = name
+        self.image = None
         self.typeof = ''
         self.is2handed = False
         self.isshield = False

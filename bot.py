@@ -25,11 +25,11 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(name='Discord RPG'))
     if TEST is True:
-        rpgChannel = client.get_channel(os.environ.get("test-rpg"))
-        triviaChannel = client.get_channel(os.environ.get("test-trivia"))
+        rpgChannel = client.get_channel(eval(os.environ.get("test-rpg")))
+        triviaChannel = client.get_channel(eval(os.environ.get("test-trivia")))
     else:
-        rpgChannel = client.get_channel(os.environ.get("real-rpg"))
-        triviaChannel = client.get_channel(os.environ.get("real-trivia"))
+        rpgChannel = client.get_channel(eval(os.environ.get("real-rpg")))
+        triviaChannel = client.get_channel(eval(os.environ.get("real-trivia")))
     text_formatting.setRPGChannel(rpgChannel)
     text_formatting.setTriviaChannel(triviaChannel)
     text_formatting.setClient(client)

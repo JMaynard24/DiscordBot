@@ -10,6 +10,7 @@ class Tech:
         global TECH
         TECH[name] = self
         self.name = name
+        self.image = None
         self.type = ''
         self.prereq = None
         self.energyuse = 150

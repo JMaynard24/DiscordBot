@@ -60,5 +60,7 @@ async def handleAdminCommand(message):
             await channelchat(message, "Set as main channel!")
         elif content == "checkid":
             await idchat(message.author.id, "%s" % message.channel.id)
+        elif content == "thing":
+            await idchat(message.author.id, "%s" % message.channel.id, "RPGFiles/Art/Icons/Green Herb.PNG")
     else:
         await chat(message, "You are not an admin!")

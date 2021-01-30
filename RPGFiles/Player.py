@@ -304,6 +304,7 @@ class Player(Character):
 
     async def examineItem(self, item, PLAYER):
         if self.state != State.SHOPPING and self.state != State.TRAINING:
+            item_obj = None
             showitem = False
             if item not in ITEM:
                 await idchat(self.id, "Such a thing has nary been spotted in Iodra.")
@@ -315,24 +316,23 @@ class Player(Character):
                 else:
                     type = ITEM[item].typeof.capitalize()
             if ITEM[item] in self.inventory:
-                await idchat(self.id, blockify(type + ":\n%s" % (ITEM[item].description)))
-                showitem = True
+                item_obj = ITEM[item]
             elif item == self.weapon.name and showitem is False:
-                await idchat(self.id, blockify(type + "\n%s" % (self.weapon.description)))
-                showitem = True
+                item_obj = self.weapon
             elif item == self.shield.name and showitem is False:
-                await idchat(self.id, blockify(type + "\n%s" % (self.shield.description)))
-                showitem = True
+                item_obj = self.shield
             elif item == self.armor.name and showitem is False:
-                await idchat(self.id, blockify(type + "\n%s" % (self.armor.description)))
-                showitem = True
+                item_obj = self.armor
             elif item == self.charm.name and showitem is False:
-                await idchat(self.id, blockify(type + "\n%s" % (self.charm.description)))
-                showitem = True
+                item_obj = self.charm
             elif len(self.tempslot) == 1 and item == self.tempslot[0].name and showitem is False:
-                await idchat(self.id, blockify(type + "\n%s" % (self.tempslot[0].description)))
-                showitem = True
-            if showitem is False:
+                item_obj = self.tempslot[0]
+            if item_obj is not None:
+                if item_obj.image is not None:
+                    await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)), item_obj.image)
+                else:
+                    await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)))
+            else:
                 await idchat(self.id, ("You can't find the item to examine..."))
 
 

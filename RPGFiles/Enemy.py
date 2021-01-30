@@ -5,6 +5,7 @@ class Enemy(Character):
 
     def __init__(self, name):
         super().__init__(name)
+        self.image = None
         self.moneyaward = 0
         self.expaward = 0
         self.opening = 'Missing Opening?'

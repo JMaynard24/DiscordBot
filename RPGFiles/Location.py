@@ -13,6 +13,7 @@ class Location:
     def __init__(self, name):
         global LOCATION
         LOCATION[name] = self
+        self.image = None
         self.boss = None
         self.name = name
         self.traveltext = "Missing traveltext"

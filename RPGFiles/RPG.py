@@ -1,6 +1,7 @@
 from RPGFiles import Player, Enemy, Item, Location, Tech
-from RPGFiles.lookup import PLAYER, MONSTER
-from text_formatting import chat, idchat, rpgChat, blockify
+from RPGFiles.lookup import PLAYER, MONSTER, ITEM
+from text_formatting import chat, idchat, rpgChat, blockify, smartCapitalize
+from os.path import isfile
 
 import os
 import time
@@ -280,6 +281,9 @@ async def loadItems(folder):
                 attr = parsed[0]
                 val = parsed[1]
                 setattr(currentItem, attr, eval(val))
+    for item in ITEM:
+        if isfile("RPGFiles/Art/Icons/%s.png" % smartCapitalize(item)):
+            ITEM[item].image = "RPGFiles/Art/Icons/%s.png" % smartCapitalize(item)
 
 
 #-------------------------------------------------------------------------------

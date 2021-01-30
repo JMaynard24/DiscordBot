@@ -1,5 +1,6 @@
 from RPGFiles.lookup import Commands
 import asyncio
+import discord
 
 client = None
 rpgChannel = None
@@ -44,7 +45,7 @@ async def channelchat(message, text):
 # -----------------------------------------------------------------------------
 
 
-async def idchat(id, text):
+async def idchat(id, text, file=None):
     id = client.get_user(id)
     await asyncio.sleep(.5)
     while len(text) > 1800:
@@ -52,7 +53,10 @@ async def idchat(id, text):
         splitText = text[:1800] + "```"
         text = "```" + text[1800:]
         await id.send(splitText)
-    await id.send(text)
+    if file is not None:
+        await id.send(text, file=discord.File(file))
+    else:
+        await id.send(text)
 
 
 # -----------------------------------------------------------------------------
