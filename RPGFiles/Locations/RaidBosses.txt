@@ -1,0 +1,37 @@
+ENEMYLIST
+name: 'Titanic Earth Wriggler'
+opening: 'The sound of gnashing fangs precedes the largest earthworm you have ever seen.'
+life: 250
+power: 35
+will: 30
+guard: 30
+speed: 65
+luck: 50
+critchance: 10
+status: 1
+statuschance: 20
+moneyaward: 1000
+expaward: 50
+description: 'That is one biiiiiig earthworm....'
+damagetext: "Titanic Earth Wriggler's body smashes against you for {damage} damage."
+nodamagetext: "Titanic Earth Wriggler wiggled out of the way of your attack, you did no damage!"
+crittext: "Titanic Earth Wriggler crushes you with it's full body weight for {damage} critical damage!"
+
+name: 'Rathalos, King of the Sky'
+opening: 'You hear the sound of heavy, beating wings. A distinctive red hue fills your vision. A roar rings out and snaps you out of your state of shock and paralysis just in time to avoid a strike from massive talons.'
+life: 350
+power: 45
+will: 30
+guard: 35
+speed: 70
+luck: 50
+critchance: 20
+status: 1
+statuschance: 33
+moneyaward: 1000000
+expaward: 0
+description: 'An enormous fire wyvern with distinctive red and black markings, spiny, armored hide, and prominent poison-dealing talons.'
+damagetext: "Rathalos sinks his talons into you for {damage} damage!"
+nodamagetext: "Rathalos's tough scales absorb your attack. You deal no damage!"
+crittext: "Rathalos lobs a fireball at you for {damage} critical damage!"
+bossoutro: "With the final strike, the majestic beast slumps heavily to the ground and hisses a final, defiant cry. Your team has fought well!"

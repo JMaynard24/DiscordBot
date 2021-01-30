@@ -1,0 +1,57 @@
+name: "Example"
+price: 0
+buff.power: 0
+buff.will: 0
+buff.finesse: 0
+buff.guard: 0
+buff.magic: 0
+buff.speed: 0
+buff.luck: 0
+description: ""
+
+name: "Prison Garb"
+price: 2
+buff.speed: 1
+description: "Speed +1\nSell Price: 1\nThe holes are from those damned rats."
+
+name: "Butcher's Frock"
+price: 100
+buff.guard: 3
+description: "Guard +3\nSell Price: 50\nModerate defense if you don't mind all the blood."
+
+name: "Steel Mesh Apron"
+price: 500
+buff.will: 1
+buff.guard: 5
+description: "Will +1\nGuard +5\nSell Price: 250\nButchers wear these under their clothing to emulate knights... Not really. It's just a safety precaution."
+
+name: "Leather Cuirass"
+price: 600
+buff.guard: 6
+buff.speed: 3
+description: "Guard +6\nSpeed +3\nSell Price: 300\nLeather armor that covers the torso."
+
+name: "Iron Cuirass"
+price: 750
+buff.guard: 9
+description: "Guard +9\nSell Price: 375\nIron armor that covers the torso. Blackdirge Cavern still holds a wealth of iron, but no one dares brave the expansive mine after alarming stirrings were heard from within."
+
+name: "Cotton Doublet"
+price: 900
+buff.guard: 2
+buff.speed: 7
+buff.critChance: 3
+description: "Guard +2\nSpeed +7\nCrit +3\nSell Price: 450\nLightweight padded garment that affords little protection but allows for superior maneuverability."
+
+name: "Silken Robe"
+price: 750
+buff.guard: 1
+buff.magic: 4
+buff.will: 4
+description: "Guard +1\nMagic +4\nWill +4\nSell Price: 375\nSmooth silken robe with minor magical runes woven into the fabric."
+
+name: "Forest Furs"
+price: 600
+buff.guard: 3
+buff.will: 5
+description: "Guard +3\nWill +5\nSell Price: 300\nThis armor is crafted from various furs and leathers from the fauna of Eldergrimm."

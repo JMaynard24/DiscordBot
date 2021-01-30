@@ -1,0 +1,68 @@
+traveltext: "Following the Forest Ruffian's trail, you find a bandit camp."
+
+surroundings: "Even though you know this is a bandit camp, you would much rather be here than in that horrible forest."
+
+encounterchance: {'Guard Dog':(0, 30), 'Forest Ruffian':(31, 60), 'Bandit Archer':(61, 90), 'Bandit Captain':(91, 100)}
+
+boss: "Marley the Pollute"
+
+ENEMYLIST
+
+name: "Guard Dog"
+opening: "Deep growling catches your attention as you are searching around the camp."
+life: 80
+power: 20
+speed: 25
+statusinflict: 8
+statuschance: 20
+moneyaward: 50
+expaward: 15
+description: "Chance to bleed - The dog seems suprisingly well fed compared to what you've seen in the forest."
+damagetext: "The dog's claws rip at your flesh for {damage} damage!"
+nodamagetext: "The dog sidesteps your blow. No damage!"
+crittext: "The dog's teeth sink into your flesh for {damage} critical damage!"
+
+name: "Bandit Archer"
+opening: "You rush an unexpecting bandit as they draw their bow."
+life: 110
+power: 15
+guard: 15
+speed: 35
+statusinflict: 1
+statuschance: 20
+moneyaward: 50
+expaward: 15
+description: "Chance to poison - Catching this bandit off-guard was quite the advantage."
+damagetext: "The bandit's arrow slices through your skin for {damage} damage!"
+nodamagetext: "The bandit moves away to create distance between you. No damage!"
+crittext: "The bandit finds thier mark and drives an arrow into your muscle for {damage} critical damage!"
+
+name: "Bandit Captain"
+opening: "A surprised bandit approaches you. \"Wait, wha' are you doing 'ere?\""
+life: 135
+power: 25
+speed: 20
+guard: 18
+moneyaward: 70
+expaward: 18
+description: "The bandit seems to be worried about something."
+damagetext: "The bandit's spear knicks your flesh for {damage} damage!"
+nodamagetext: "The bandit's spear pushed your weapon aside. No damage!"
+crittext: "The bandit's spear tears your muscle for {damage} critical damage!"
+
+name: "Marley the Pollute"
+opening: "You find the leader of the camp. She looks to already be in rough shape. \"Wha' are you doing here? Can't you see the 'orrible things 'appening in the forrest?\""
+isboss: True
+life: 160
+power: 32
+guard: 20
+speed: 20
+statusinflict: 1
+statuschance: 50
+moneyaward: 700
+expaward: 80
+description: "High chance to poison - The leader of this camp. You see the liquid dripping from her axe."
+damagetext: "Marley's axe rends your skin for {damage} damage!"
+nodamagetext: "Marley's axe just misses you as you step aside."
+crittext: "Marley's axe catches you off-guard and launches you a few feet into the air for {damage} critical damage!"
+bossoutro: "As she falls, you see her sad expression as she gives one last sweeping look at her camp."

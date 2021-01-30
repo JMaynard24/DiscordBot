@@ -1,0 +1,48 @@
+name: "Barrel Lid"
+price: 50
+buff.guard: 1
+nodamagereceivetext: "Miraculously, your barrel lid blocks {player}'s attack!"
+nodamagedealtext: "{player}'s barrel lid miraculously blocks your attack!"
+description: "Guard +1\nSell Price: 25\nYou'd have preferred the contents of the barrel, but here we are."
+
+name: "Cast Iron Pan"
+price: 100
+buff.guard: 3
+nodamagereceivetext: "A loud clang rings out as you block {player}'s attack with your pan!"
+nodamagedealtext: "{player}'s pan blocks your attack and rings loudly!"
+description: "Guard +3\nSell Price: 50\nA nice cast iron pan is the only way to prepare the highest caliber steak... Also surprisingly decent for blocking swords."
+
+name: "Light Buckler"
+price: 600
+buff.guard: 2
+buff.speed: 3
+buff.critChance: 3
+nodamagereceivetext: "You sweep aside {player}'s attack with your buckler!"
+nodamagedealtext: "Your attack is swept aside by {player}'s buckler!"
+description: "Guard +2\nSpeed +3\nCrit +3\nSell Price: 300\nA well-crafted leather buckler. Due to its weight, it promotes agility in its wielder."
+
+name: "Wooden Tower Shield"
+price: 750
+buff.maxlife: 15
+buff.will: 2
+buff.guard: 7
+buff.speed: -2
+nodamagereceivetext: "Your tower shield absorbs {player}'s attack!"
+nodamagedealtext: "Your attack is absorbed by {player}'s tower shield!"
+description: "Life +15\nWill +2\nGuard +7\nSpeed -2\nSell Price: 375\nGrand tower shield hewn from the wood of a weykhrim tree, stained with their distinctive red sap."
+
+name: "Iron Shield"
+statusinflict: 0
+statuschance: 0
+price: 600
+buff.finesse: 3
+buff.guard: 5
+nodamagereceivetext: "Your shield blocks {player}'s attack!"
+nodamagedealtext: "Your attack is blocked by {player}'s shield!"
+description: "Finesse +3\nGuard +5\nSell Price: 300\nThis shield is forged of iron from some of the last deposits mined before the expansive Blackdirge Cavern was abandoned due to alarming stirrings from within."
+
+name: "Forest Parma"
+price: 600
+buff.guard: 3
+buff.will: 5
+description: "Guard +3\nWill +5\nSell Price: 300\nSimple wooden parma imbued with the status resisting properties of the weykhrim tree."

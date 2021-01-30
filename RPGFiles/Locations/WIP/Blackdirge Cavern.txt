@@ -1,0 +1,21 @@
+TravelText: Placeholder
+
+SURROUNDINGS
+Placeholder
+
+name: "Mad Shrieker"
+opening: "An inhuman head lurches from the darkness atop long arms, screaming and darting its eyes."
+life: 
+power: 
+guard: 
+speed: 
+luck: 
+critchance: 
+moneyaward: 
+expaward: 
+behavior: "Aggressive"
+description: "This creature, consisting of an enormous head suspended six feet above ground between long, twisting, multi-jointed arms, shrieks madly while hunting its prey."
+damagetext: "The creature screams and balances on one of its arms striking out with the other for {damage} damage!"
+nodamagetext: "The creature leaps and catches your weapon between its great callused palms. You deal no damage!"
+crittext: "The creature lowers its head and springs off with its arms, snapping down on your thigh for {damage} critical damage!"
+

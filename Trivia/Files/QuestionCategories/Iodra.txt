@@ -1,0 +1,29 @@
+question: "Brandishing his whip, who is the boss of the Prison of Hope?"
+answer: "Warden of Hope"
+
+question: "Who lost a ring?"
+answer: "Tarrow's Shopkeeper"
+
+question: "A powerful early weapon that can cause your enemies to bleed."
+answer: "Bloody Shiv"
+
+question: "There is a mountain overlooking Tarrow. What is it called?"
+answer: "Coldsnap Peak"
+
+question: "The first item you can get that cures poison."
+answer: "Weykhrim Cider"
+
+question: "After finding the bandit camp, you can run across the leader. What is her name?"
+answer: "Marley the Pollute"
+
+question: "A certain encounter needs to be cleared in Eldergrimm to find the bandit camp. Who do you have to defeat?"
+answer: "Forest Ruffian"
+
+question: "There is a trainer in the Prison of Hope. Who put him there?"
+answer: "The Iodran Vanguard"
+
+question: "Hinted at in a few places, where does most of the iron come from in Iodra?"
+answer: "Blackdirge Cavern"
+
+question: "A menacing creature, who is the boss of Eldergrimm?"
+answer: "The Wood King"

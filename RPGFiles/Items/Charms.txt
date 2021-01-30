@@ -1,0 +1,45 @@
+name: "Pendant"
+price: 2
+description: "Sell Price: 1\nA simple pendant with no effect."
+
+name: "Lost Ring"
+price: 400
+buff.luck: 5
+description: "Luck +5\nSell Price: 200\nOooooh, shiny. Finders keepers."
+
+name: "Wolf's Tooth"
+price: 400
+buff.critChance: 5
+description: "Crit +5\nSell Price: 200\nChipped tooth from a wolf of Eldergrimm, curiously blackened at its core"
+
+name: "Knucklebones"
+price: 750
+buff.maxlife: 15
+buff.will: 5
+description: "Life +15\nWill +5\nSell Price: 375\nA grotesque reminder of the Warden of Hope's cruel misdeeds."
+
+name: "Trinket of Surestrike"
+price: 750
+buff.critChance: 10
+description: "Crit +10\nSell Price: 375\nCarved from the back molar of a Mad Shrieker, this simple charm allows the wearer to focus in on the enemy's weakpoints."
+
+name: "Lucky Bauble"
+price: 600
+buff.luck: 10
+description: "Luck +10\nSell Price: 300\nA very small golden figure of a creature you don't recognize."
+
+name: "Vitality Stone"
+price: 750
+buff.life: 25
+description: "Life +25\nSell Price: 375\nThis stone of strange material gives off an eerie warmth."
+
+name: "Wardstone Bauble"
+price: 600
+buff.will: 10
+description: "Will +10\nSell Price: 300\nCarved from wardstone, which is commonly used in many potions and remedies, this bauble raises resistance to statuses and elements."
+
+name: "Claw Token"
+price: 1000
+buff.power: 5
+buff.guard: 5
+description: "Power +5\nGuard +5\nSell Price: 500\nThe chipped claw of the Wood King, imbued with his might."

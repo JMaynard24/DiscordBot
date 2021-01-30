@@ -1,0 +1,127 @@
+traveltext: "Memories of your triumph here still linger. Guards turn their heads as you wander freely throughout the conquered prison."
+
+surroundings: "Moss and mold cover the dimly lit walls. The sound of dripping water echoes off the few patches of bare stone. You feel something scurry across your feet."
+
+encounterchance: {'Pitiful Rat':(0, 30), 'Crazed Lunatic':(31, 55), 'Sprawling Mold':(56, 70), 'Prison Chef':(71, 85), 'Prison Guard':(86, 100)}
+
+hastrainer: True
+
+traineropening: "A wizened man slowly casts his eyes up from his bunk. \"Training? I've not had a pupil in so many years... I'll offer you what I can.\""
+
+trainerrumor+: "I've witnessed so many like you, hopeful to get out of this hell. Doesn't it strike you as odd? I've nary seen a one ever make it past the warden."
+trainerrumor+: "This prison is nigh overburdened with the flow of crazed men entering these walls of late. This place feels more an asylum now."
+trainerrumor+: "How did I end up here? In my youth, I told myself the attrocities I committed were in the name of progress and the security of the homeland. I now see the Iodran Vanguard was right in placing me here..."
+trainerrumor+: "I grow weary... Please, let an old man rest."
+
+trainerclosing: "Thank you... It feels good to be of use to someone again, even for a moment."
+
+boss: "Warden of Hope"
+
+ENEMYLIST
+name: "Pitiful Rat"
+opening: "Clearly famished and desperate, a rat strikes from the shadows hoping for even a small morsel of flesh."
+life: 10
+power: 7
+guard: 3
+moneyaward: 3
+expaward: 1
+description: "You would feel sorry for the creature if only it weren't so grotesque."
+damagetext: "The rat's fangs find soft flesh! You take {damage} damage."
+nodamagetext: "The rat seems surprised as you tickle its belly for no damage..."
+crittext: "The rat lunges for your throat and latches on for {damage} critical damage!"
+
+name: "Crazed Lunatic"
+opening: "Dribble sprays from the inmate's mouth as he charges, babbling incoherently and flailing wildly."
+life: 20
+guard: 6
+speed: 12
+critchance: 10
+statusinflict: 8
+statuschance: 6
+moneyaward: 5
+expaward: 3
+droplist.Bloody Shiv: 20
+description: "Small chance to bleed - During moments of clarity, he reaches for a sharp crude shiv black with old blood."
+damagetext: "The madman strikes out with reckless abandon for {damage} damage!"
+nodamagetext: "In his crazed state, the man feels no pain. You deal no damage."
+crittext: "The lunatic's shiv finds its way between your ribs for {damage} critical damage!"
+
+name: "Sprawling Mold"
+opening: "An amorphous miasmic mold creeps slowly down the wall and into your path."
+life: 50
+power: 5
+speed: 7
+critchance: 10
+statusinflict: 1
+statuschance: 10
+moneyaward: 7
+expaward: 5
+droplist.Green Herb: 80
+droplist.Lost Ring: 15
+description: "Small chance to poison - You can see dead insects speckle the surface of the putrid mass."
+damagetext: "The mold belches a noxious gas! You take {damage} damage."
+nodamagetext: "Your blow sinks softly into the mold for no damage!"
+crittext: "The vile blob spits corrosive bile at you for {damage} critical damage!"
+
+name: "Prison Chef"
+opening: "A chef notices you and approaches with a cleaver held high and a rotund belly spilling from his chef's attire."
+life: 30
+will: 5
+power: 11
+moneyaward: 9
+expaward: 6
+droplist.Green Herb: 90
+droplist.Heavy Cleaver: 15
+droplist.Cast Iron Pan: 40
+droplist.Butcher's Frock: 40
+droplist.Steel Mesh Apron: 15
+inventory: ["Green Herb"]
+description: "This man is an angry mix of sweat and jowls."
+damagetext: "The chef brings down his cleaver for {damage} damage!"
+nodamagetext: "The chef's steel mesh apron absorbs your blow! You deal no damage."
+crittext: "The chef's cleaver strikes bone for {damage} critical damage!"
+
+name: "Prison Guard"
+opening: "A guard spots you and dons a vicious sneer. \"I'm going to enjoy this...\""
+life: 40
+power: 16
+guard: 12
+statusinflict: 2
+statuschance: 10
+moneyaward: 11
+expaward: 7
+droplist.Bludgeon: 10
+droplist.Weak Potion: 70
+droplist.Leather Cuirass: 10
+inventory: ["Weak Potion"]
+description: "Small chance to stun - His bludgeon looks like it could pack quite the wallop."
+damagetext: "The prison guard smiles wildly and strikes for {damage} damage!"
+nodamagetext: "The guard manages to block with his bludgeon! You deal no damage."
+crittext: "The guard's bludgeon meets your temple for {damage} critical damage!"
+
+name: "Warden of Hope"
+opening: "Standing in your path to freedom is the warden himself, known for squelching any hope of escape or a brighter future for the miserable lot held within."
+isboss: True
+life: 100
+power: 20
+finesse: 15
+guard: 15
+speed: 15
+critchance: 10
+statusinflict: 2
+statuschance: 10
+moneyaward: 100
+expaward: 30
+skills: ["Oppress"]
+techchance: 33
+droplist.Short Sword: 70
+droplist.Warden's Whip: 20
+droplist.Leather Cuirass: 25
+droplist.Knucklebones: 10
+inventory: ["Weak Potion", "Weak Potion"]
+unlocklocations: ["Tarrow", "Eldergrimm"]
+description: "Small chance to stun - A man who delights in the pain of others, he keeps the knucklebones of a victim of his torture around his neck as a warning to any who dares defy him."
+damagetext: "The warden cackles madly and attacks for {damage} damage! \"You're never getting out of here!\""
+nodamagetext: "The warden parries your blow and laughs! You deal no damage."
+crittext: "The warden's whip snaps around your neck as his sword leaves a red gash in your flesh for {damage} critical damage!"
+bossoutro: "The warden chuckles with his last breath as you step over his twisted form. The sunlight makes you squint as the exit is opened. The way to the town of Tarrow and the ancient forest of Eldergrimm opens before you."

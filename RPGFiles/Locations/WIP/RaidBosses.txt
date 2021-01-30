@@ -1,0 +1,16 @@
+RAID 1
+Name: Titanic Earth Wriggler
+Life: 50
+Will: 20
+Power: 10
+Guard: 10
+Speed: 10
+Luck: 10
+Dodge: 15
+CritChance: 10
+Status: 1
+StatusChance: 20
+Money: 1000
+EXP: 50
+Behavior: Aggressive
+Description: The sound of gnashing fangs precedes the largest earthworm you have ever seen.

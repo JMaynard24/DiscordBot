@@ -1,0 +1,90 @@
+traveltext: "Fallen leaves crunch underfoot. The wind through the branches masks the sounds of anything that may lurk nearby."
+
+surroundings: "Leaves and flattened foliage pave the broad, well-trodden paths. The trees here take sinister form, some appearing as unnatural figures, others hewn and splintered by beasts one hesitates even to imagine."
+
+encounterchance: {'Pitiful Rat':(0, 30), 'Crazed Lunatic':(31, 55), 'Sprawling Mold':(56, 70), 'Prison Chef':(71, 85), 'Prison Guard':(86, 100)}
+
+boss: "The Wood King"
+
+ENEMYLIST
+name: "Diseased Rodent"
+opening: "A rodent rendered unrecognizable with severe pestilence scurries from the brush."
+life: 50
+power: 13
+speed: 13
+statusinflict: 1
+statuschance: 15
+moneyaward: 10
+expaward: 10
+behavior: "Aggressive"
+description: "Chance to poison - Pustules cover the rodent, and you feel queasy at the sight."
+damagetext: "The rodent gnaws at your calf for {damage} damage."
+nodamagetext: "The rodent ignores your blow. You deal no damage."
+crittext: "The rodent snaps its fangs onto your thigh and rakes your flesh with its claws for {damage} critical damage!"
+
+name: "Grasping Timber"
+opening: "A great creaking and snapping of branches draws your attention to the gnarled, unnatural form of an animate tree."
+life: 80
+power: 20
+guard: 15
+elementaldef.water: 50
+elementaldef.fire: -100
+moneyaward: 50
+expaward: 12
+droplist.Grasping Wand: 15
+droplist.Green Herb: 60
+behavior: "Aggressive"
+description: "The great tree's many knots form what looks almost like a face, but that must only be your imagination..."
+damagetext: "Roots strike from below for {damage} damage!"
+nodamagetext: "Your strike is absorbed by the timber's thick bark. You deal no damage."
+crittext: "The timber's thick branches land a crushing blow for {damage} critical damage!"
+
+name: "Wounded Wolf"
+opening: "A wolf limps across your path leaving a trail of blood."
+life: 60
+power: 18
+guard: 12
+speed: 13
+status.Bleed: True
+moneyaward: 50
+expaward: 10
+behavior: "Aggressive"
+droplist.Wolf's Tooth: 10
+description: "Long red gouges across the wolf's body seep blood. The animal appears to fight solely out of fear and desperation."
+damagetext: "The wolf's jaws desperately snap at you for {damage} damage!"
+nodamagetext: "The wolf leaps to the side and avoids your blow. You deal no damage!"
+crittext: "The wolf feels backed into a corner and lunges, latching onto your leg and ripping at the flesh for {damage} critical damage!"
+
+name: "Creeping Vines"
+opening: "Vines swing down and strike from above."
+life: 80
+power: 16
+speed: 15
+statusinflict: 3
+statuschance: 10
+elementaldef.water: 50
+elementaldef.fire: -100
+moneyaward: 70
+expaward: 13
+behavior: "Aggressive"
+droplist.Vine of Nine Tails: 25
+droplist.Green Herb: 60
+description: "Small chance to paralyze - A writhing mass of vines covered in thorns. Crushes the blood from its prey to nourish itself."
+damagetext: "You are lashed by thorny vines for {damage} damage!"
+nodamagetext: "The vines move with your attack. You deal no damage!"
+crittext: "The vines lift you off your feet by the throat, strangling you for {damage} critical damage!"
+ 
+name: "Brush Adder"
+opening: "You feel something wrap around your leg and quickly kick it away."
+life: 80
+power: 16
+speed: 15
+statusinflict: 1 
+statuschance: 20
+moneyaward: 70
+expaward: 13
+behavior: "Aggressive"
+description: "Chance to poison - A common adder in the forests across Iodra, this snake strikes with its fangs as well as the poison barbs at the end of its tail. Unsavory folk have been known to dilute its venom and ferment it with grains to create the potent, addictive serum Berserk Brew."
+damagetext: "You're bitten for {damage} damage!"
+nodamagetext: "The snake takes the brunt of your blow with its poison barbs. You deal no damage!"
+crittext: "The snake's poison barbs rake your flesh and its fangs sink deep for {damage} critical damage!"

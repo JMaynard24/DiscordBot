@@ -1,0 +1,20 @@
+name: "Oppress"
+energyuse: 200
+dmg: 10
+statusinflict: 2
+statuschance: 100
+receivetext: "The warden strikes you with the back of his hand. \"You'll be here for the rest of your life. Just crawl back to your cell, knave!\""
+
+name: "Bind"
+energyuse: 200
+dmg: 0
+statusinflict: 3
+statuschance: 100
+receivetext: "The vines wrap around you and tie you in place!"
+
+name: "Roar"
+energyuse: 200
+dmg: 0
+statusinflict: 9
+statuschance: 100
+receivetext: "The bear rises on its hind legs and roars a sickly, pained cacophony unlike anything you've heard. Black, undulating spittle spews forth from the beast's throat, and horrific images fill your vision."

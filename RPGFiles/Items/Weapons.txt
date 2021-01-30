@@ -1,0 +1,166 @@
+name: "Worn Sword"
+energyuse: 250
+price: 50
+buff.power: 3
+damagereceivetext: "{player}'s sword hits its mark for {damage} damage!"
+damagedealtext: "Your sword strikes {player} for {damage} damage!"
+critreceivetext: "{player} finds their way through your guard and slashes for {damage} critical damage!"
+critdealtext: "Your sword opens a wide gash in {player} for {damage} critical damage!"
+description: "Power +3\nEnergy Use: 250\nSell Price: 25\nThere are notches in the blade here and there, but it's better than nothing, if only marginally."
+
+name: "Bloody Shiv"
+energyuse: 150
+statusinflict: 8
+statuschance: 15
+price: 50
+buff.power: 2
+buff.speed: 3
+buff.critChance: 2
+damagereceivetext: "{player}'s shiv gouges a hole in you for {damage} damage!"
+damagedealtext: "Your shiv gouges a hole in {player} for {damage} damage!"
+critreceivetext: "{player}'s shiv finds its way between your ribs for {damage} critical damage!"
+critdealtext: "You drive your shiv in deep, and {player} takes {damage} critical damage!"
+description: "Power +2\nSpeed +3\nCrit +2\nEnergy Use: 150\nSmall chance to bleed\nSell Price: 25\nDried blood encrusts the crude white edge of the blade... Could this be bone?"
+
+name: "Heavy Cleaver"
+is2handed: True
+energyuse: 300
+price: 200
+buff.power: 6
+buff.guard: 2
+damagereceivetext: "{player} lifts their cleaver high and brings it down for {damage} damage!"
+damagedealtext: "You bring your cleaver down and strike {player} for {damage} damage!"
+critreceivetext: "{player} puts all of their weight behind their cleaver for {damage} critical damage!"
+critdealtext: "You put all of your weight behind your blow and strike {player} for {damage} critical damage!"
+nodamagereceivetext: "You lift your cleaver and manage to block {player}'s attack!"
+nodamagedealtext: "Your strike was blocked by {player}'s cleaver!"
+description: "Two-Handed\nPower +6\nGuard +2\nEnergy Use: 300\nSell Price: 100\nUnwieldy but sinister and effective."
+
+name: "Bludgeon"
+energyuse: 200
+statusinflict: 2
+statuschance: 15
+price: 200
+buff.power: 3
+buff.luck: 1
+damagereceivetext: "{player}'s bludgeon knocks the wind out of you for {damage} damage!"
+damagedealtext: "You strike {player} squarely for {damage} damage!"
+critreceivetext: "{player}'s bludgeon meets your temple with great force for {damage} critical damage!"
+critdealtext: "Your strike sends {player} reeling for {damage} critical damage!"
+description: "Power +3\nLuck +1\nEnergy Use: 200\nSmall chance to stun\nSell Price: 100\nA simple baton with a weighted end."
+
+name: "Leather Whip"
+energyuse: 175
+price: 500
+buff.power: 3
+buff.speed: 3
+buff.finesse: 4
+buff.luck: 1
+damagereceivetext: "{player}'s whip leaves a stinging trail for {damage} damage!"
+damagedealtext: "Your whip stings {player} for {damage} damage!"
+critreceivetext: "{player} whips madly and catches your throat for {damage} critical damage!"
+critdealtext: "You lash wildly and strike {player} for {damage} critical damage!"
+description: "Power +3\nSpeed +3\nFinesse +4\nLuck +1\nEnergy Use: 175\nSell Price: 250\nNormally used for driving animals but serves well for flogging your enemies."
+
+name: "Warden's Whip"
+energyuse: 175
+price: 700
+buff.power: 4
+buff.speed: 3
+buff.finesse: 4
+buff.luck: 1
+buff.critChance: 3
+damagereceivetext: "{player}'s whip leaves a stinging trail for {damage} damage!"
+damagedealtext: "Your whip stings {player} for {damage} damage!"
+critreceivetext: "{player} whips madly and catches your throat for {damage} critical damage!"
+critdealtext: "You lash wildly and strike {player} for {damage} critical damage!"
+description: "Power +4\nSpeed +3\nFinesse +4\nLuck +1\nCrit +3\nEnergy Use: 175\nSell Price: 350\nUsed by the Warden of Hope to rip the flesh from his countless victims."
+
+name: "Short Sword"
+energyuse: 200
+price: 300
+buff.will: 2
+buff.power: 4
+buff.critChance: 1
+damagereceivetext: "{player}'s sword hits its mark for {damage} damage!"
+damagedealtext: "Your sword strikes {player} for {damage} damage!"
+critreceivetext: "{player} finds their way through your guard and slashes for {damage} critical damage!"
+critdealtext: "Your sword opens a wide gash in {player} for {damage} critical damage!"
+description: "Will +2\nPower\n+4\nCrit +1\nEnergy Use: 200\nSell Price: 150\nWell forged and reliable, a staple of any battle."
+
+name: "Iron Claymore"
+is2handed: True
+energyuse: 300
+price: 750
+buff.power: 10
+buff.guard: 2
+damagereceivetext: "{player}'s claymore strikes with great force for {damage} damage!"
+damagedealtext: "You swing your claymore at {player} for {damage} damage!"
+critreceivetext: "{player} finds an opening and strikes your legs with their claymore for {damage} critical damage!"
+critdealtext: "You find an opening in {player}'s defenses and bring your claymore down for {damage} critical damage!"
+nodamagereceivetext: "You block {player}'s attack with your claymore!"
+nodamagedealtext: "Your attack was blocked by {player}'s claymore!"
+description: "Two-Handed\nPower +10\nGuard +2\nEnergy Use: 300\nSell Price: 375\nA hefty mass of iron capable of rending limbs from unfortunate victims in the right hands."
+
+name: "Iron Dagger"
+energyuse: 150
+price: 750
+buff.power: 3
+buff.speed: 10
+buff.critChance: 5
+damagereceivetext: "{player}'s dagger gouges a hole in you for {damage} damage!"
+damagedealtext: "Your dagger gouges a hole in {player} for {damage} damage!"
+critreceivetext: "{player}'s dagger finds its way between your ribs for {damage} critical damage!"
+critdealtext: "You drive your dagger in deep, and {player} takes {damage} critical damage!"
+description: "Power +3\nSpeed +10\nCrit +5\nEnergy Use: 150\nSell Price: 375\nSmall, well-crafted dagger that promotes maneuverability and allows for focused strikes."
+
+name: "Weykhrim Staff"
+energyuse: 200
+price: 500
+buff.power: 1
+buff.magic: 3
+buff.will: 3
+damagereceivetext: "{player} bashes with their staff for {damage} damage!"
+damagedealtext: "You bash {player} with your staff for {damage} damage!"
+critreceivetext: "{player} gouges your eye with the end of their staff for {damage} critical damage!"
+critdealtext: "You bash {player} squarely with your staff for {damage} critical damage!"
+description: "Power +1\nMagic +3\nWill +3\nEnergy Use: 200\nSell Price: 250\nSimple wooden staff fashioned from a gnarled weykhrim branch and inscribed with minor magical runes."
+
+name: "Grasping Wand"
+energyuse: 175
+price: 600
+buff.magic: 4
+buff.will: 4
+buff.maxmana: 1
+damagereceivetext: "{player} punches you for {damage} damage!"
+damagedealtext: "You punch {player} for {damage} damage!"
+critreceivetext: "{player} punches you in the gut for {damage} critical damage!"
+critdealtext: "Your punch sends {player} reeling for {damage} critical damage!"
+description: "Magic +4\nWill +4\nMana +1\nEnergy Use: 175\nSell Price: 300\nThis wand, once a part of a Grasping Timber, by some unnatural impulse writhes and twists in the hand."
+
+name: "Vine of Nine Tails"
+energyuse: 175
+price: 600
+buff.power: 2
+buff.speed: 3
+buff.finesse: 5
+statusinflict: 3
+statuschance: 15
+damagereceivetext: "{player} lashes out leaving a stinging trail across your flesh for {damage} damage!"
+damagedealtext: "You lash {player} for {damage} damage!"
+critreceivetext: "{player} whips several vines around your torso sinking thorns in deep for {damage} critical damage!"
+critdealtext: "Your whip's thorns sink deep into {player} for {damage} critical damage!"
+description: "Power +2\nSpeed +3\nFinesse +5\nEnergy Use: 175\nSmall chance to paralyze\nSell Price: 300\nSeveral thorny vines bundled together. Effective for wrapping around the enemy and ripping at the flesh."
+
+name: "Forest Cudgel"
+energyuse: 225
+price: 600
+buff.power: 3
+buff.will: 5
+statusinflict: 1
+statuschance: 15
+damagereceivetext: "{player} bashes with fervor for {damage} damage!"
+damagedealtext: "You bash {player} for {damage} damage!"
+critreceivetext: "Your head rings as {player}'s cudgel raps you across the jaw for {damage} critical damage!"
+critdealtext: "You drive the  cudgel's barbs into {player} for {damage} critical damage!"
+description: "Power +3\nWill +5\nEnergy Use: 225\nSmall chance to poison\nSell Price: 300\nThis cudgel incorporates the poison barbs of the common brush adder. A favorite of bandits."

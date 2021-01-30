@@ -1,0 +1,64 @@
+name: "ExampleSkill"
+type: 'Skill'
+energyuse: 150
+prereq: None
+pointuse: 10
+dmg: 5
+dmgtype: 'Physical'
+statusinflict: 1
+statuschance: 40
+description: "Cost: 10 TP\nDamage: 5\nModerate chance to poison\nYou tip your weapon in poison and strike out."
+dealtext: "You uses ExampleSkill! Your poison tipped weapon strikes {player} for {damage] damage!"
+receivetext: "{player} uses ExampleSkill! Their poison tipped weapon strikes you for {damage] damage!"
+
+name: "Bolster Defense"
+type: "Skill"
+energyuse: 150
+potentialcost: 4
+pointuse: 8
+dmg: 0
+dmgtype: None
+buff.guard: 5
+description: "8 Focus to Perform\nGuard +5\nFor the remainder of the encounter, you have increased physical defense."
+dealtext: "You feel tough as iron!"
+receivetext: "{player} performed Bolster Defense!"
+
+name: "Focus Strike"
+type: "Skill"
+energyuse: 200
+potentialcost: 6
+pointuse: 10
+dmg: 10
+dmgtype: "Finesse"
+critchance: 100
+description: "10 Focus to Perform\nCrit +100\nYou hone in on the enemy's vital points for bonus damage!"
+dealtext: "You find an opening in the enemy's defenses and strike with your {weapon} for {damage} focused damage!"
+receivetext: "{player} performed Focus Strike!"
+
+name: "Exhaust"
+type: "Skill"
+energyuse: 200
+potentialcost: 6
+pointuse: 10
+dmg: 10
+dmgtype: "Finesse"
+critchance: 100
+description: "10 Focus to Perform\nCrit +100\nYou hone in on the enemy's vital points for bonus damage!"
+dealtext: "You find an opening in the enemy's defenses and strike with your {weapon} for {damage} focused damage!"
+receivetext: "{player} performed Focus Strike!"
+
+name: "Concentrate"
+type: "Skill"
+potentialcost: 3
+pointuse: 0
+dmg: 0
+dmgtype: ""
+description: "Outside of battle, you relax your body and open your mind, transferring your focus into mana. \n(!con or !concentrate <number|'all'>)"
+
+name: "Meditate"
+type: "Spell"
+potentialcost: 3
+pointuse: 0
+dmg: 0
+dmgtype: ""
+description: "Outside of battle, you clear your mind and prepare your body, transferring your mana into focus. \n(!med or !meditate <number|'all'>)"

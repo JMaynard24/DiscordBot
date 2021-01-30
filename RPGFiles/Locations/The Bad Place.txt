@@ -1,0 +1,42 @@
+traveltext: "This is the bad place."
+
+surroundings: "Looks bad."
+
+encounterchance: {'Creep':(0, 100)}
+
+boss: "The Bad"
+
+ENEMYLIST
+name: "Creep"
+opening: "You feel something creeping up to you."
+life: 500
+power: 50
+guard: 30
+speed: 30
+will: 30
+statusinflict: 9
+statuschance: 5
+moneyaward: 300
+expaward: 100
+description: "You can't shake the feeling..."
+damagetext: "Your skin crawls and you take {damage} damage."
+nodamagetext: "Just some goosebumps..."
+crittext: "You tear some skin from your arm and take {damage} critical damage!"
+
+name: "The Bad"
+opening: "You feel as if you are going to have a bad time."
+isboss: True
+life: 1000
+power: 80
+guard: 40
+speed: 40
+will: 40
+statusinflict: 9
+statuschance: 25
+moneyaward: 10000
+expaward: 500
+description: "This doesn't look good..."
+damagetext: "You feel your mind rip apart for {damage} damage!"
+nodamagetext: "You hold your thoughts steady and take no damage."
+crittext: "You claw at your eyes and take {damage} critical damage!"
+bossoutro: "Well that sucked."

@@ -1,0 +1,64 @@
+traveltext: "New adventurers should visit the shop and trainer here."
+
+surroundings: "The place is very quaint, nestled gently in the valley below Coldsnap Peak. A dark forest looms just outside the safety of its walls. The shop and trainer here are fine resources for an up-and-coming adventurer."
+
+hasshop: True
+
+shopopening: "Oi, you there. Come on in and buy somethin'."
+
+shoprumor+: "You didn't 'appen to come from that prison out on Outcast Isle, didya? 'eard there's someone gone and bro'en out recently. Ah well, coin is coin."
+shoprumor+: "'ave you seen my Lost Ring? I've looked everywhere for it... Ah well, no big loss, I reckon."
+shoprumor+: "You know, these walls aren't just for show. There be all manner of beasties lurkin' about just outside. You'd best be well equipped if you plan on 'avin' a go at survivin'."
+shoprumor+: "I 'eard that ol' bear out in the woods killed another one the other day. Ay, you'd reckon people would learn by now that ol' thing is a force of nature, not to be challenged lightly..."
+shoprumor+: "If you 'ave any plans of venturin' into that forest, I reckon you'd best have a Weykhrim Cider or two."
+shoprumor+: "Tarrow isn't much, but it's home."
+shoprumor+: "Go on and buy somethin', willya!? 'ave you had a look at yourself lately?"
+
+shopitem+: 'Short Sword'
+shopitem+: 'Leather Whip'
+shopitem+: 'Iron Claymore'
+shopitem+: 'Iron Dagger'
+shopitem+: 'Weykhrim Staff'
+shopitem+: 'NOT A REAL ITEM CHECK'
+
+shopitem+: 'Light Buckler'
+shopitem+: 'Iron Shield'
+shopitem+: 'Wooden Tower Shield'
+
+shopitem+: 'Leather Cuirass'
+shopitem+: 'Cotton Doublet'
+shopitem+: 'Iron Cuirass'
+shopitem+: 'Silken Robe'
+
+shopitem+: 'Trinket of Surestrike'
+shopitem+: 'Lucky Bauble'
+shopitem+: 'Vitality Stone'
+shopitem+: 'Wardstone Bauble'
+
+shopitem+: 'Weak Potion'
+shopitem+: 'Weykhrim Cider'
+shopitem+: 'Flask of Shadows'
+
+shopclosingbuy: "Now don't go off and get yourself killed. I need your business!"
+shopclosingnobuy: "Not a single purchase? You'll regret goin' out unprepared!"
+
+hastrainer: True
+
+traineropening: "Looking to better yourself? I assure you, you've come to the right man."
+
+trainerrumor+: "The Iodran Vanguard has been pulling many warriors like myself out of retirement of late. They say there's some rising threat or other, and we are to ensure that no man is unprepared for what is ahead. They are apprehensive to give any details, though. Very ominous..."
+trainerrumor+: "You sought guidance from an elderly gentleman whilst imprisoned? The way you describe him sounds familiar... I feel we may have fought beside one another some years past. It sounds as though he's undergone a change of heart."
+trainerrumor+: "Do you know I have seen a shady figure carrying wounded souls to the inn here? He pays for their board from their own pockets as they sleep. Why should I fear him? But I do..."
+trainerrumor+: "The forest has grown malevolent in recent times. Mayhaps it's time for a culling by fire."
+trainerrumor+: "If you plan to employ the skills I may impart, I think you'll find less traditional arms to be a boon."
+trainerrumor+: "Are you here to gossip or to learn?"
+
+traineritem+: "Bolster Defense"
+traineritem+: "Swelter"
+traineritem+: "Piercing Stream"
+traineritem+: "Shock"
+traineritem+: "Pelt"
+traineritem+: "Concentrate"
+traineritem+: "Meditate"
+
+trainerclosing: "Shall you need further training, you know where to find me."

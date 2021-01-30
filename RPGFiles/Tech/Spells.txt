@@ -1,0 +1,69 @@
+name: "Example"
+type: 'Spell'
+energyuse: 150
+prereq: None
+pointuse: 10
+dmg: 30
+dmgtype: "Fire"
+statusinflict: 1
+statuschance: 20
+description: "Example Fire spell that also poisons?"
+dealtext: "You cast Example! Poisonous flames surround {player} and deal {damage} damage!"
+receivetext: "{player} casts Example! Poisonous flames surround you and deal {damage} damage!"
+
+name: "Swelter"
+energyuse: 150
+type: "Spell"
+potentialcost: 4
+pointuse: 6
+dmg: 15
+dmgtype: "Fire"
+description: "6 Mana to Cast\nTier 1 Fire Spell\nFire element spell that heats the air around the target."
+dealtext: "You cast Swelter! The temperature rises around {player} and deals {damage} fire damage!"
+receivetext: "{player} casts Swelter! The temperature rises around you and deals {damage} fire damage!"
+
+name: "Piercing Stream"
+energyuse: 150
+type: "Spell"
+potentialcost: 4
+pointuse: 6
+dmg: 15
+dmgtype: "Water"
+description: "6 Mana to Cast\nTier 1 Water Spell\nWater element spell that focuses a high velocity stream of water at the target."
+dealtext: "You cast Piercing Stream! A powerful stream of water strikes {player} and deals {damage} water damage!"
+receivetext: "{player} casts Piercing Stream! A powerful stream of water strikes you and deals {damage} water damage!"
+
+name: "Shock"
+energyuse: 150
+type: "Spell"
+potentialcost: 4
+pointuse: 6
+dmg: 15
+dmgtype: "Lightning"
+description: "6 Mana to Cast\nTier 1 Lightning Spell\nLightning element spell that fires an orb of electricity at the target."
+dealtext: "You cast Shock! A ball of electricity strikes {player} and deals {damage} lightning damage!"
+receivetext: "{player} casts Shock! A ball of electricity strikes you and deals {damage} lightning damage!"
+
+name: "Pelt"
+type: "Spell"
+energyuse: 150
+potentialcost: 4
+pointuse: 6
+dmg: 15
+dmgtype: "Earth"
+description: "6 Mana to Cast\nTier 1 Earth Spell\nEarth element spell that pelts the target with stones and earth."
+dealtext: "You cast Pelt! Stones and earth strike {player} and deal {damage} earth damage!"
+receivetext: "{player} casts Pelt! Stones and earth strike you and deal {damage} earth damage!"
+
+name: "Rejuvenate"
+type: "Spell"
+energyuse: 150
+potentialcost: 3
+pointuse: 5
+dmg: 0
+dmgtype: ""
+curelife: 20
+description: "6 Mana to Cast\nTier 1 Earth Spell\nEarth element spell that pelts the target with stones and earth."
+dealtext: "You cast Pelt! Stones and earth strike {player} and deal {damage} earth damage!"
+receivetext: "{player} casts Pelt! Stones and earth strike you and deal {damage} earth damage!"
+

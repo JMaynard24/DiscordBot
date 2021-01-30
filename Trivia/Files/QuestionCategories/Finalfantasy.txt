@@ -1,0 +1,44 @@
+question: "VII: How many towns are present in the game, excluding all the sectors in Midgar?"
+answer: "Twelve"
+
+question: "VII: Kalm: An old man is living in Kalm (he is sometimes referred to as the Kalm traveler) and is searching for various hard-to-find items in the game. What is the reward for handing him the Desert Rose?"
+answer: "A Gold Chocobo"
+
+question: "VII: Fort Condor: In Fort Condor you help fighting the Shinra attacks by playing a real-time strategy mini-game. The game is mandatory to play once, but it can be played up to fourteen times for several different rewards. One unique reward is a weapon, but which one is it?"
+answer: "Superball"
+
+question: "VII: Junon: Following the attack on the city by Sapphire Weapon, one of the two bars in town decide to close down as all the regulars died. Which one is it?"
+answer: "Shinra Member's bar"
+
+question: "VII: Costa Del Sol: In this resort town many familiar faces can be seen hanging around. Which familiar face is sitting at the bar in the Bar del Sol?"
+answer: "Mukki"
+
+question: "VII: North Corel: North Corel is a small settlement of refuges from the city of Corel. The stores sell a limited amount of items, but the weapons store does sell an uncommon throwable item. Which is it?"
+answer: "Molotov"
+
+question: "VII: Cosmo Canyon: After getting the Highwind it is possible to enter the back room of the item shop, where a unique magic materia can be found. Which materia?"
+answer: "Deathblow"
+
+question: "VII: The Titan Summon materia can be found at the destroyed reactor, but another materia can also be found near town. Which materia is it?"
+answer: "Deathblow"
+
+question: "VII: Nibelheim: When visiting Nibelheim a note can be found on the table in Tifa's room that covers a clone activity report from Hojo. However, if you read the note during Cloud's flashback it contains a letter from a young guy who left town. Who is the author of that letter?"
+answer: "The son of the guy that runs the General Store"
+
+question: "VII: Rocket Town: A small town built around the Shinra Rocket that was a part of their space program until it got discontinued. What is the name of the town inn?"
+answer: "Shanghai Inn"
+
+question: "VII: Wutai Town: The town is optional for the player to visit, but it contains several side-quests and some neat items. One specific item can be found in a house full of cats, by climbing some steps and opening a hidden chest. Which item is it?"
+answer: "HP Absorb"
+
+question: "VII: Icicle Inn: It snows year round in this small town due to it being so close to the North Crater. A small family has recently moved to the town (you get the snowboard from the child of the family). Which town do the mother mention they moved from?"
+answer: "Mideel"
+
+question: "VII: Mideel: A small town in the southern parts of the game. Prior to the destruction of the town it is possible to complete a small side-quest, by finding an old key and use it on a door inside the weapons shop. The reward is an accessory ring. But which one is it?"
+answer: "Cursed Ring"
+
+question: "VII: Sector 5: The Sector 5 slums in Midgar is where Aeris was raised by Elmyra. In one of the houses, you are able to steal 5 Gil from a sleeping child by going through his drawers. But if you choose to leave the money, the child will award you with an item later in the game. What item is it? "
+answer: "Turbo Ether"
+
+question: "VII: Sector 7:The town holds the Seventh Heaven bar which serves as a hideout for AVALANCHE. The front of the building contains two large signs. The upper sign has a word written in five capital letters with a yellow font. What does the word say?"
+answer: "TEXAS"

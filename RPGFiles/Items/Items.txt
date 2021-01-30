@@ -1,0 +1,61 @@
+name: "Empty Slot"
+description: "Look at you being silly."
+
+name: "Weak Potion"
+battleitem: True
+worlditem: True
+energyuse: 100
+curelife: 30
+curemana: 0
+curefocus: 0
+maxstacksize: 3
+price: 100
+description: "Heals 30% life\nEnergy Use: 100\nSell Price: 50\nTastes of bitter root."
+usedtext: "You recovered 30% life!"
+
+name: "Green Herb"
+battleitem: True
+worlditem: True
+energyuse: 100
+curelife: 20
+maxstacksize: 3
+price: 50
+description: "Heals 20% life\nEnergy Use: 100\nSell Price: 25\nGotta get your greens somehow."
+usedtext: "You recovered 20% life!"
+
+name: "Weykhrim Cider"
+battleitem: True
+worlditem: True
+energyuse: 100
+numofuses: 1
+curestatus: 1
+maxstacksize: 3
+price: 100
+description: "Cures Poison\nEnergy Use: 100\nSell Price: 50\nDistilled from the sap of the weykhrim trees common throughout Eldergrimm Forest. Quite palatable, actually."
+usedtext: "Your stomach feels like it was flipped right side up. Your poison is gone!"
+
+name: "Briarmist Pellet"
+battleitem: False
+worlditem: True
+numofuses: 1
+price: 500
+description: "Attracts enemies\nSell Price: 250\nA pellet of concentrated nectar from the briarmist thistle common throughout the Boilmarshes. When thrown, a coppery scent fills the air quickly attracting enemies."
+usedtext: "An enemy approaches!"
+
+name: "Flask of Shadows"
+battleitem: True
+worlditem: False
+numofuses: 1
+price: 100
+description: "Escape from battle\nSell Price: 50\nThis glass flask has two chambers containing fluids that produce a thick smoke when combined."
+usedtext: "You throw the flask at your feet and quickly beat a retreat under the cover of thick smoke!"
+
+name: "Berserk Brew"
+battleitem: True
+worlditem: False
+numofuses: 1
+price: 500
+buff.power: 10
+buff.guard: -10
+description: "Temporary\nPower +10\nGuard -10\nSell Price: 250\nDistilled from diluted brush adder venom and fermented with grains, this brew is commonly used by bandits and other unsavory folk."
+usedtext: "You feel a rush of strength!"
