@@ -5,6 +5,7 @@ from random import randint
 from os.path import isfile
 
 import RPGFiles.Encounter as Encounter
+import image_editor
 import os
 import operator
 import asyncio
@@ -237,14 +238,55 @@ class Player(Character):
                     stringofitems += ' and %s' % item
                 else:
                     stringofitems += ' and %s x%s' % (item, number)
-        if self.weapon is None or self.weapon.is2handed is False:
-            await idchat(self.id, blockify("Weapon: %s\nShield: %s\n Armor: %s\n Charm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
-                                           "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
-                                           "Ides: %s" % (self.money)))
+        imageList = []
+        equipList = []
+        for item in sortedstacks:
+            if ITEM[item[0]].image is not None:
+                num = item[1]
+                while num > 0:
+                    imageList.append(ITEM[item[0]].image)
+                    num -= 1
+            else:
+                num = item[1]
+                while num > 0:
+                    imageList.append('RPGFiles/Art/Icons/NOPIC.png')
+                    num -= 1
+        if self.weapon.image is not None:
+            equipList.append(self.weapon.image)
         else:
-            await idchat(self.id, blockify("Weapon: %s\nShield: %s (Inactive)\nArmor: %s\nCharm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
-                                           "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
-                                           "Ides: %s" % (self.money)))
+            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
+        if self.shield.image is not None:
+            equipList.append(self.shield.image)
+        else:
+            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
+        if self.armor.image is not None:
+            equipList.append(self.armor.image)
+        else:
+            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
+        if self.charm.image is not None:
+            equipList.append(self.charm.image)
+        else:
+            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
+        image = image_editor.createInventory(equipList, imageList)
+        if image is not None:
+            if self.weapon is None or self.weapon.is2handed is False:
+                await idchat(self.id, blockify("Weapon: %s\nShield: %s\n Armor: %s\n Charm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
+                                               "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
+                                               "Ides: %s" % (self.money)), ['temp.jpg'])
+            else:
+                await idchat(self.id, blockify("Weapon: %s\nShield: %s (Inactive)\nArmor: %s\nCharm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
+                                               "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
+                                               "Ides: %s" % (self.money)), ['temp.jpg'])
+        else:
+            if self.weapon is None or self.weapon.is2handed is False:
+                await idchat(self.id, blockify("Weapon: %s\nShield: %s\n Armor: %s\n Charm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
+                                               "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
+                                               "Ides: %s" % (self.money)))
+            else:
+                await idchat(self.id, blockify("Weapon: %s\nShield: %s (Inactive)\nArmor: %s\nCharm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
+                                               "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
+                                               "Ides: %s" % (self.money)))
+        os.remove('temp.jpg')
 
 
     async def displayStats(self):
@@ -308,32 +350,34 @@ class Player(Character):
             showitem = False
             if item not in ITEM:
                 await idchat(self.id, "Such a thing has nary been spotted in Iodra.")
-                showitem = True
             else:
                 types = ['Weapons', 'Shields', 'Charms', 'Items']
                 if ITEM[item].typeof in types:
                     type = ITEM[item].typeof[:len(ITEM[item].typeof) - 1].capitalize()
                 else:
                     type = ITEM[item].typeof.capitalize()
-            if ITEM[item] in self.inventory:
-                item_obj = ITEM[item]
-            elif item == self.weapon.name and showitem is False:
-                item_obj = self.weapon
-            elif item == self.shield.name and showitem is False:
-                item_obj = self.shield
-            elif item == self.armor.name and showitem is False:
-                item_obj = self.armor
-            elif item == self.charm.name and showitem is False:
-                item_obj = self.charm
-            elif len(self.tempslot) == 1 and item == self.tempslot[0].name and showitem is False:
-                item_obj = self.tempslot[0]
-            if item_obj is not None:
-                if item_obj.image is not None:
-                    await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)), item_obj.image)
+                if ITEM[item] in self.inventory:
+                    item_obj = ITEM[item]
+                elif item == self.weapon.name and showitem is False:
+                    item_obj = self.weapon
+                elif item == self.shield.name and showitem is False:
+                    item_obj = self.shield
+                elif item == self.armor.name and showitem is False:
+                    item_obj = self.armor
+                elif item == self.charm.name and showitem is False:
+                    item_obj = self.charm
+                elif len(self.tempslot) == 1 and item == self.tempslot[0].name and showitem is False:
+                    item_obj = self.tempslot[0]
+                if item_obj is not None:
+                    if item_obj.image is not None:
+                        img = image_editor.size128(item_obj.image, string=True)
+                        img.save('temp%s.png' % self.id)
+                        await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)), ['temp%s.png' % self.id])
+                        os.remove('temp%s.png' % self.id)
+                    else:
+                        await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)))
                 else:
-                    await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)))
-            else:
-                await idchat(self.id, ("You can't find the item to examine..."))
+                    await idchat(self.id, ("You can't find the item to examine..."))
 
 
     async def discarditem(self, itemname):

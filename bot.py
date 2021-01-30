@@ -18,6 +18,7 @@ rpgStringSymbol = '-'
 adminSymbol = '$'
 
 
+
 @client.event
 async def on_ready():
     global rpgChannel

@@ -7,7 +7,6 @@ from MathUtility import is_number
 class Tech:
 
     def __init__(self, name):
-        global TECH
         TECH[name] = self
         self.name = name
         self.image = None

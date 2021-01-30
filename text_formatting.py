@@ -45,7 +45,7 @@ async def channelchat(message, text):
 # -----------------------------------------------------------------------------
 
 
-async def idchat(id, text, file=None):
+async def idchat(id, text, files=None):
     id = client.get_user(id)
     await asyncio.sleep(.5)
     while len(text) > 1800:
@@ -53,8 +53,11 @@ async def idchat(id, text, file=None):
         splitText = text[:1800] + "```"
         text = "```" + text[1800:]
         await id.send(splitText)
-    if file is not None:
-        await id.send(text, file=discord.File(file))
+    if files is not None:
+        list = []
+        for file in files:
+            list.append(discord.File(file))
+        await id.send(text, files=list)
     else:
         await id.send(text)
 

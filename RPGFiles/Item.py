@@ -6,7 +6,6 @@ from math import ceil
 class Item:
 
     def __init__(self, name):
-        global ITEM
         ITEM[name] = self
         self.name = name
         self.image = None
