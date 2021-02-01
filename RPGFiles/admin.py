@@ -1,5 +1,6 @@
 from RPGFiles import Character, Item, Location, Tech
 from RPGFiles.lookup import PLAYER, MONSTER, LOCATION, TECH, ITEM, State
+from RPGFiles.Item import checkItems
 from text_formatting import chat, channelchat, setRPGChannel, idchat
 import RPGFiles.RPG as RPG
 import os
@@ -60,7 +61,7 @@ async def handleAdminCommand(message):
             await channelchat(message, "Set as main channel!")
         elif content == "checkid":
             await idchat(message.author.id, "%s" % message.channel.id)
-        elif content == "thing":
-            await idchat(message.author.id, "%s" % message.channel.id, "RPGFiles/Art/Icons/Green Herb.PNG")
+        elif content == "checkitems":
+            await idchat(message.author.id, "%s" % (checkItems()))
     else:
         await chat(message, "You are not an admin!")

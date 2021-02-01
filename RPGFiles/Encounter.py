@@ -185,7 +185,6 @@ class Encounter:
 
     async def end(self):
         self.finished = True
-        print("Finished for %s" % self.players)
         for player in self.players:
             player.state = State.NORMAL
             player.energy = 0
@@ -460,7 +459,7 @@ class Encounter:
         elif player.lastmessage[:5] == '-use ':
             itemname = smartCapitalize(player.lastmessage[5:])
             if itemname not in ITEM:
-                await idchat(player.id, "Such a thing has nary been spotted in Iodra.")
+                await idchat(self.id, "'%s' does not exist!" % itemname)
             elif ITEM[itemname] in player.inventory:
                 item = ITEM[itemname]
                 if await item.useItemBattle(self, target, escape):
@@ -531,7 +530,6 @@ def sortEncounterList(self):
 
 
 def getLocation(locationname):
-    global LOCATION
     if locationname in LOCATION:
         return LOCATION[locationname]
     else:

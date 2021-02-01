@@ -1,7 +1,8 @@
 from RPGFiles.lookup import TECH
-from text_formatting import idchat, bold
+from text_formatting import idchat, bold, smartCapitalize
 from math import ceil
 from MathUtility import is_number
+from os.path import isfile
 
 
 class Tech:
@@ -155,3 +156,10 @@ class Tech:
                 await player.save()
         else:
             await idchat(player.id, ("Amount must be a number or 'all'-"))
+
+    def getImage(self):
+        image = 'RPGFiles/Art/Icons/Tech/%s.png' % smartCapitalize(self.name)
+        if isfile(image):
+            return image
+        else:
+            return 'RPGFiles/Art/Icons/NOPIC.png'

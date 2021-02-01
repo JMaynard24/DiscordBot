@@ -1,7 +1,6 @@
 from RPGFiles import Player, Enemy, Item, Location, Tech
-from RPGFiles.lookup import PLAYER, MONSTER, ITEM
-from text_formatting import chat, idchat, rpgChat, blockify, smartCapitalize
-from os.path import isfile
+from RPGFiles.lookup import PLAYER, MONSTER, ITEM, TECH, LOCATION
+from text_formatting import chat, idchat, rpgChat, blockify
 
 import os
 import time
@@ -46,9 +45,9 @@ async def initializeGame():
         await loadchar.load()
     print("PLAYER: %s\n" % [k for k in PLAYER])
     print("MONSTER: %s\n" % [k for k in MONSTER])
-    print("ITEM: %s\n" % [k for k in Item.ITEM])
-    print("TECH: %s\n" % [k for k in Tech.TECH])
-    print("LOCATION: %s\n" % [k for k in Location.LOCATION])
+    print("ITEM: %s\n" % [k for k in ITEM])
+    print("TECH: %s\n" % [k for k in TECH])
+    print("LOCATION: %s\n" % [k for k in LOCATION])
 
 
 #-------------------------------------------------------------------------------
@@ -281,9 +280,6 @@ async def loadItems(folder):
                 attr = parsed[0]
                 val = parsed[1]
                 setattr(currentItem, attr, eval(val))
-    for item in ITEM:
-        if isfile("RPGFiles/Art/Icons/%s.png" % smartCapitalize(item)):
-            ITEM[item].image = "RPGFiles/Art/Icons/%s.png" % smartCapitalize(item)
 
 
 #-------------------------------------------------------------------------------

@@ -1,5 +1,4 @@
 from PIL import Image
-from math import floor
 
 
 def append_images(images, direction='horizontal',
@@ -51,48 +50,86 @@ def append_images(images, direction='horizontal',
     return new_im
 
 
-def createInventory(equipment, inventory):
-    combo_1 = None
-    combo_2 = None
+def createInventory(equipment, inventory, id):
     equipment = [Image.open(x) for x in equipment]
     inventory = [Image.open(x) for x in inventory]
-    newinv = []
+
+    # Pack Equipment with size 128x128
     newequip = []
     for i in equipment:
         i = size128(i)
         newequip.append(i)
+    if len(newequip) > 1:
+        finalImage = append_images(newequip, direction='horizontal')
+    elif len(newequip) == 1:
+        finalImage = equipment[0]
+
+    # Pack Inventory with size 64x64 in sets of 8
+    invList = []
+    loopSize = 8
+    newinv = []
     for i in inventory:
         i = size64(i)
         newinv.append(i)
-    if len(newequip) + len(newinv) == 0:
-        return None
-    if len(newequip) > 1:
-        combo_1 = append_images(newequip, direction='horizontal')
-    elif len(newequip) == 1:
-        combo_1 = equipment[0]
-    if len(newinv) > 1:
-        combo_2 = append_images(newinv, direction='horizontal')
-    elif len(newinv) == 1:
-        combo_2 == newinv[0]
-    if combo_1 is not None and combo_2 is not None:
-        combo_3 = append_images([combo_1, combo_2], direction='vertical', bg_color=(0, 0, 0), alignment='left')
-        combo_3.save('temp.jpg')
-    elif combo_1 is None and combo_2 is not None:
-        combo_2.save('temp.jpg')
-    elif combo_2 is None and combo_1 is not None:
-        combo_1.save('temp.jpg')
+        if len(newinv) == loopSize:
+            invList.append(append_images(newinv, direction='horizontal'))
+            newinv = []
+    if len(newinv) == 1:
+        invList.append(newinv[0])
+    elif len(newinv) > 1:
+        invList.append(append_images(newinv, direction='horizontal'))
+
+    # Combine Equipment and Inventory into one image to display
+    for list in invList:
+        finalImage = append_images([finalImage, list], direction='vertical', bg_color=(0, 0, 0), alignment='left')
+    finalImage.save('temp_inv_%s.jpg' % id)
     return True
+
+
+def createShop(lists, id):
+    imagesToPack = []
+    for list in lists:
+        images = [Image.open(x) for x in list]
+        sizedImages = []
+        for i in images:
+            i = size32(i)
+            sizedImages.append(i)
+        if len(list) == 1:
+            imagesToPack.append(sizedImages[0])
+        elif len(list) > 1:
+            imagesToPack.append(append_images(sizedImages, direction='horizontal'))
+    if len(imagesToPack) > 1:
+        combo_3 = append_images(imagesToPack, direction='vertical', bg_color=(0, 0, 0), alignment='left')
+    else:
+        combo_3 = imagesToPack[0]
+    combo_3.save('temp_shop_%s.jpg' % id)
+
+
+def size32(image, string=False):
+    if string is True:
+        image = Image.open(image)
+    if image.size != (32, 32):
+        img = image.resize((32, 32), Image.ANTIALIAS)
+        return img
+    else:
+        return image
 
 
 def size64(image, string=False):
     if string is True:
         image = Image.open(image)
-    img = image.resize((64, 64), Image.ANTIALIAS)
-    return img
+    if image.size != (32, 32):
+        img = image.resize((64, 64), Image.ANTIALIAS)
+        return img
+    else:
+        return image
 
 
 def size128(image, string=False):
     if string is True:
         image = Image.open(image)
-    img = image.resize((128, 128), Image.ANTIALIAS)
-    return img
+    if image.size != (32, 32):
+        img = image.resize((128, 128), Image.ANTIALIAS)
+        return img
+    else:
+        return image

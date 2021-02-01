@@ -1,5 +1,5 @@
 from RPGFiles.Character import Character
-from RPGFiles.lookup import LOCATION, ITEM, PLAYER, ENCOUNTERS, State, EncType, townlocationlist, hostilelocationlist
+from RPGFiles.lookup import LOCATION, ITEM, PLAYER, ENCOUNTERS, TECH, State, EncType, townlocationlist, hostilelocationlist
 from text_formatting import idchat, rpgChat, bold, blockify, smartCapitalize, createCommandsBlock, allCommands
 from random import randint
 from os.path import isfile
@@ -241,42 +241,24 @@ class Player(Character):
         imageList = []
         equipList = []
         for item in sortedstacks:
-            if ITEM[item[0]].image is not None:
-                num = item[1]
-                while num > 0:
-                    imageList.append(ITEM[item[0]].image)
-                    num -= 1
-            else:
-                num = item[1]
-                while num > 0:
-                    imageList.append('RPGFiles/Art/Icons/NOPIC.png')
-                    num -= 1
-        if self.weapon.image is not None:
-            equipList.append(self.weapon.image)
-        else:
-            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
-        if self.shield.image is not None:
-            equipList.append(self.shield.image)
-        else:
-            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
-        if self.armor.image is not None:
-            equipList.append(self.armor.image)
-        else:
-            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
-        if self.charm.image is not None:
-            equipList.append(self.charm.image)
-        else:
-            equipList.append('RPGFiles/Art/Icons/NOPIC.png')
-        image = image_editor.createInventory(equipList, imageList)
+            num = item[1]
+            while num > 0:
+                imageList.append(ITEM[item[0]].getImage())
+                num -= 1
+        equipList.append(self.weapon.getImage())
+        equipList.append(self.shield.getImage())
+        equipList.append(self.armor.getImage())
+        equipList.append(self.charm.getImage())
+        image = image_editor.createInventory(equipList, imageList, self.id)
         if image is not None:
             if self.weapon is None or self.weapon.is2handed is False:
                 await idchat(self.id, blockify("Weapon: %s\nShield: %s\n Armor: %s\n Charm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
                                                "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
-                                               "Ides: %s" % (self.money)), ['temp.jpg'])
+                                               "Ides: %s" % (self.money)), ['temp_inv_%s.jpg' % self.id])
             else:
                 await idchat(self.id, blockify("Weapon: %s\nShield: %s (Inactive)\nArmor: %s\nCharm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
                                                "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
-                                               "Ides: %s" % (self.money)), ['temp.jpg'])
+                                               "Ides: %s" % (self.money)), ['temp_inv_%s.jpg' % self.id])
         else:
             if self.weapon is None or self.weapon.is2handed is False:
                 await idchat(self.id, blockify("Weapon: %s\nShield: %s\n Armor: %s\n Charm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
@@ -286,7 +268,7 @@ class Player(Character):
                 await idchat(self.id, blockify("Weapon: %s\nShield: %s (Inactive)\nArmor: %s\nCharm: %s\n\n" % (self.weapon.name, self.shield.name, self.armor.name, self.charm.name) +
                                                "Inventory %s/%s : %s\n" % (len(self.inventory), self.inventorymax, stringofitems) +
                                                "Ides: %s" % (self.money)))
-        os.remove('temp.jpg')
+        os.remove('temp_inv_%s.jpg' % self.id)
 
 
     async def displayStats(self):
@@ -335,7 +317,7 @@ class Player(Character):
         if self.state != State.ENCOUNTER:
             if ITEM[item].worlditem is True:
                 if item not in ITEM:
-                    await idchat(self.id, "Such a thing has nary been spotted in Iodra.")
+                    await idchat(self.id, "'%s' does not exist!" % item)
                 elif ITEM[item] in self.inventory:
                     await ITEM[item].useItem(self)
                 else:
@@ -345,44 +327,55 @@ class Player(Character):
 
 
     async def examineItem(self, item, PLAYER):
-        if self.state != State.SHOPPING and self.state != State.TRAINING:
+        if item in ITEM:
             item_obj = None
-            showitem = False
-            if item not in ITEM:
-                await idchat(self.id, "Such a thing has nary been spotted in Iodra.")
+            types = ['Weapons', 'Shields', 'Charms', 'Items']
+            if ITEM[item].typeof in types:
+                type = ITEM[item].typeof[:len(ITEM[item].typeof) - 1].capitalize()
             else:
-                types = ['Weapons', 'Shields', 'Charms', 'Items']
-                if ITEM[item].typeof in types:
-                    type = ITEM[item].typeof[:len(ITEM[item].typeof) - 1].capitalize()
+                type = ITEM[item].typeof.capitalize()
+            equipment = [self.weapon.name, self.armor.name, self.shield.name, self.charm.name]
+            inventory = [item.name for item in self.inventory]
+            itemlist = equipment + inventory
+            if self.state == State.SHOPPING:
+                itemlist += self.location.shopitem
+            elif len(self.tempslot) == 1:
+                itemlist.append(self.tempslot[0].name)
+            if item in itemlist:
+                item_obj = ITEM[item]
+            if item_obj is not None:
+                str = item_obj.getImage()
+                if str != 'RPGFiles/Art/Icons/NOPIC.png':
+                    img = image_editor.size128(str, string=True)
+                    img.save('temp%s.png' % self.id)
+                    await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)), ['temp%s.png' % self.id])
+                    os.remove('temp%s.png' % self.id)
                 else:
-                    type = ITEM[item].typeof.capitalize()
-                if ITEM[item] in self.inventory:
-                    item_obj = ITEM[item]
-                elif item == self.weapon.name and showitem is False:
-                    item_obj = self.weapon
-                elif item == self.shield.name and showitem is False:
-                    item_obj = self.shield
-                elif item == self.armor.name and showitem is False:
-                    item_obj = self.armor
-                elif item == self.charm.name and showitem is False:
-                    item_obj = self.charm
-                elif len(self.tempslot) == 1 and item == self.tempslot[0].name and showitem is False:
-                    item_obj = self.tempslot[0]
-                if item_obj is not None:
-                    if item_obj.image is not None:
-                        img = image_editor.size128(item_obj.image, string=True)
-                        img.save('temp%s.png' % self.id)
-                        await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)), ['temp%s.png' % self.id])
-                        os.remove('temp%s.png' % self.id)
-                    else:
-                        await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)))
-                else:
-                    await idchat(self.id, ("You can't find the item to examine..."))
+                    await idchat(self.id, blockify(type + "\n%s" % (item_obj.description)))
+            else:
+                await idchat(self.id, ("You can't find the item to examine..."))
+        elif item in TECH:
+            tech_obj = None
+            tech = item
+            if self.state == State.TRAINING:
+                examinelist = self.location.traineritem
+                if tech in examinelist:
+                    tech_obj = TECH[tech]
+            else:
+                techlist = [TECH[tech].name for tech in self.skills] + [TECH[tech].name for tech in self.spells]
+                if tech in techlist:
+                    tech_obj = TECH[tech]
+            if tech_obj is not None:
+                await idchat(self.id, blockify(TECH[tech].description))
+            else:
+                await idchat(self.id, "No one around knows that spell or skill...")
+        else:
+            await idchat(self.id, "'%s' does not exist!" % item)
 
 
     async def discarditem(self, itemname):
         if itemname not in ITEM:
-            await idchat(self.id, "Such a thing has nary been spotted in Iodra.")
+            await idchat(self.id, "'%s' does not exist!" % itemname)
         elif ITEM[itemname] in self.inventory:
             self.inventory.remove(ITEM[itemname])
             await idchat(self.id, "You discard %s." % (bold(itemname)))
@@ -397,7 +390,7 @@ class Player(Character):
             await idchat(self.id, "You don't have time for that!")
         else:
             if itemname not in ITEM:
-                await idchat(self.id, "Such a thing has nary been spotted in Iodra.")
+                await idchat(self.id, "'%s' does not exist!" % itemname)
                 return
             elif ITEM[itemname] in self.inventory:
                 item = ITEM[itemname]

@@ -1,6 +1,7 @@
 from RPGFiles.lookup import ITEM
-from text_formatting import idchat, bold
+from text_formatting import idchat, bold, smartCapitalize
 from math import ceil
+from os.path import isfile
 
 
 class Item:
@@ -8,7 +9,6 @@ class Item:
     def __init__(self, name):
         ITEM[name] = self
         self.name = name
-        self.image = None
         self.typeof = ''
         self.is2handed = False
         self.isshield = False
@@ -62,15 +62,15 @@ class Item:
 
 
     async def useItem(self, player):
+        for item in player.inventory:
+            if item.name == self.name:
+                player.inventory.remove(item)
+                break
         await idchat(player.id, ("You use %s!" % (bold(self.name))))
         await idchat(player.id, ("%s!" % (self.usedtext)))
         player.life = min(player.life + ceil(player.get('maxlife') * (self.curelife / 100)), player.get('maxlife'))
         player.focus = min(player.focus + ceil(player.get('maxfocus') * (self.curefocus / 100)), player.get('maxfocus'))
         player.mana = min(player.mana + ceil(player.get('maxmana') * (self.curemana / 100)), player.get('maxmana'))
-        for item in player.inventory:
-            if item.name == self.name:
-                player.inventory.remove(item)
-                break
 
 
     async def useItemBattle(self, player, chars, players, message, target, escape):
@@ -99,3 +99,19 @@ class Item:
                 player.runaway += 1
                 player.lastmessage = ''
                 return True
+
+    def getImage(self):
+        image = 'RPGFiles/Art/Icons/Item/%s.png' % smartCapitalize(self.name)
+        if isfile(image):
+            return image
+        else:
+            return 'RPGFiles/Art/Icons/NOPIC.png'
+
+
+def checkItems():
+    items = []
+    for item in ITEM:
+        image = 'RPGFiles/Art/Icons/Item/%s.png' % smartCapitalize(item)
+        if not isfile(image):
+            items.append(item)
+    return items

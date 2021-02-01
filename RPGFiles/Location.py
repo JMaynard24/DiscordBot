@@ -4,6 +4,8 @@ from random import randint
 from math import floor
 from MathUtility import is_number
 
+import os
+import image_editor
 import copy
 import asyncio
 
@@ -83,7 +85,7 @@ class Location:
                     else:
                         amount = 1
                     if itemname not in ITEM:
-                        await idchat(player.id, "Such a thing has nary been spotted in Iodra.")
+                        await idchat(player.id, "'%s' does not exist!" % itemname)
                     else:
                         itemfound = False
                         for item in self.shopitem:
@@ -131,7 +133,7 @@ class Location:
                         if item.name == itemname:
                             num += 1
                     if itemname not in ITEM:
-                        await idchat(player.id, "Such a thing has nary been spotted in Iodra.")
+                        await idchat(player.id, "'%s' does not exist!" % itemname)
                     elif num >= amount:
                         item = ITEM[itemname]
                         player.money += floor(item.price * amount / 2)
@@ -147,50 +149,42 @@ class Location:
                     elif sold is False:
                         await idchat(player.id, "You do not have %s x%s" % (bold(itemname), amount))
                     player.lastmessage = ''
-                elif player.lastmessage[:9] == "-examine ":
-                    itemname = smartCapitalize(player.lastmessage[9:])
-                    if itemname not in ITEM:
-                        await idchat(player.id, "Such a thing has nary been spotted in Iodra.")
-                    else:
-                        inventorylist = [item.name for item in player.inventory]
-                        examinelist = self.shopitem + [player.weapon.name, player.armor.name, player.shield.name, player.charm.name] + inventorylist
-                        if itemname in examinelist:
-                            types = ['Weapons', 'Shields', 'Charms', 'Items']
-                            if ITEM[itemname].typeof in types:
-                                type = ITEM[itemname].typeof[:len(ITEM[itemname].typeof) - 1].capitalize()
-                            else:
-                                type = ITEM[itemname].typeof.capitalize()
-                            text_to_send = type + '\n' + ITEM[itemname].description
-                            await idchat(player.id, blockify(text_to_send))
-                        else:
-                            await idchat(player.id, "You can't find the item to examine...")
-                    player.lastmessage = ''
                 elif player.lastmessage == "-list all":
                     text_to_send = ''
+                    imageCategories = []
                     for listname in ['weapons', 'shields', 'armor', 'charms', 'items']:
                         shopdict = {}
+                        imageList = []
                         typestring = listname.capitalize()
                         for item in self.shopitem:
                             if item in ITEM and ITEM[item].typeof == typestring:
                                 shopdict[item] = ITEM[item].price
+                                imageList.append(ITEM[item].getImage())
                         liststring = typestring + '\n'
                         for item in shopdict:
                             liststring += ('  %s: %s\n' % (item, shopdict[item]))
                         text_to_send += liststring
-                    await idchat(player.id, blockify(text_to_send))
+                        imageCategories.append(imageList)
+                    image_editor.createShop(imageCategories, player.id)
+                    await idchat(player.id, blockify(text_to_send), ['temp_shop_%s.jpg' % player.id])
+                    os.remove('temp_shop_%s.jpg' % player.id)
                     player.lastmessage = ''
                 elif player.lastmessage[:6] == "-list ":
                     listname = player.lastmessage[6:].lower()
                     shopdict = {}
+                    imageList = []
                     if listname in ['weapons', 'shields', 'armor', 'charms', 'items']:
                         typestring = listname.capitalize()
                         for item in self.shopitem:
                             if item in ITEM and ITEM[item].typeof == typestring:
                                 shopdict[item] = ITEM[item].price
+                                imageList.append(ITEM[item].getImage())
                         liststring = ''
                         for item in shopdict:
                             liststring += ('%s: %s\n' % (item, shopdict[item]))
-                        await idchat(player.id, blockify(liststring))
+                        image_editor.createShop([imageList], player.id)
+                        await idchat(player.id, blockify(liststring), ['temp_shop_%s.jpg' % player.id])
+                        os.remove('temp_shop_%s.jpg' % player.id)
                     else:
                         await idchat(player.id, "That list does not exist!")
                     player.lastmessage = ''
@@ -299,7 +293,7 @@ class Location:
                         await idchat(player.id, "I am afraid my frailty prevents me from teaching you some of my greater techniques.")
                     else:
                         itemname = smartCapitalize(player.lastmessage[7:])
-                        if itemname not in ITEM:
+                        if itemname not in TECH:
                             await idchat(player.id, "%s is not a spell nor skill.")
                         else:
                             itemfound = False
@@ -315,7 +309,7 @@ class Location:
                                                 else:
                                                     player.skills.append(TECH[itemname])
                                                 await idchat(player.id, "You learned %s for %s Potential!" % (bold(itemname), TECH[itemname].potentialcost))
-                                                player.save()
+                                                await player.save()
                                                 await idchat(player.id, "You have %s Potential left!" % (player.potential))
                                             else:
                                                 await idchat(player.id, "You don't have enough Potential!")
@@ -327,18 +321,6 @@ class Location:
                                     break
                             if itemfound is False:
                                 await idchat(player.id, "Sorry, I can't teach %s to you." % (bold(itemname)))
-                    player.lastmessage = ''
-                elif player.lastmessage[:9] == "-examine ":
-                    tech = smartCapitalize(player.lastmessage[9:])
-                    if tech not in TECH:
-                        await idchat(player.id, "%s is neither a spell nor skill." % (itemname))
-                    else:
-                        techlist = [item.name for item in player.skills] + [item.name for item in player.spells]
-                        examinelist = self.traineritem + techlist
-                        if itemname in examinelist:
-                            await idchat(player.id, blockify(TECH[itemname].description))
-                        else:
-                            await idchat(player.id, "No one around knows that spell or skill...")
                     player.lastmessage = ''
                 elif player.lastmessage[:6] == "-list ":
                     if self.name == 'Prison of Hope':
@@ -416,3 +398,10 @@ class Location:
                     await idchat(player.id, "%s" % (self.trainerclosing))
                     break
             player.state = State.NORMAL
+
+    def getImage(self):
+        image = 'RPGFiles/Art/Location/%s.png' % smartCapitalize(self.name)
+        if os.path.isfile(image):
+            return image
+        else:
+            return 'RPGFiles/Art/Location/NOPIC.png'
