@@ -171,7 +171,7 @@ class Encounter:
                     elif character.isplayer is False:
                         if self.lastTurn != character:
                             self.lastTurn == character
-                        await character.enemyTurn()
+                        await self.enemyTurn()
                     if time.time() - 3600 > self.startTime:
                         for player in self.players:
                             await idchat(player.id, ("Time's up! Encounters time out after one hour!"))
@@ -462,7 +462,7 @@ class Encounter:
                 await idchat(self.id, "'%s' does not exist!" % itemname)
             elif ITEM[itemname] in player.inventory:
                 item = ITEM[itemname]
-                if await item.useItemBattle(self, target, escape):
+                if await item.useItemBattle(self, player, target, self.players, escape):
                     return True
             else:
                 await idchat(player.id, "You don't have %s!" % (bold(itemname)))
@@ -520,7 +520,7 @@ class Encounter:
     async def enemyTurn(self):
         target = choice(self.players)
         if target is not None:
-            await self.enemy.damageRoll(self, target)
+            await self.damageRoll(self.enemy, target)
         self.enemy.energy -= self.enemy.enemyenergyuse
 
 

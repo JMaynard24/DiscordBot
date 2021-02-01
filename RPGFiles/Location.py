@@ -98,7 +98,7 @@ class Location:
                                         while num > 0:
                                             player.inventory.insert(0, ITEM[itemname])
                                             num -= 1
-                                        await idchat(player.id, "You bought %s x%s for %s ides" % (bold(itemname), amount, ITEM[itemname].price * amount))
+                                        await idchat(player.id, "You bought %s x%s for %s ides!" % (bold(itemname), amount, ITEM[itemname].price * amount))
                                         await player.save()
                                         buysomething = True
                                     else:

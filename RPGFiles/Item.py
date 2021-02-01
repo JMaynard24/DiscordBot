@@ -73,7 +73,7 @@ class Item:
         player.mana = min(player.mana + ceil(player.get('maxmana') * (self.curemana / 100)), player.get('maxmana'))
 
 
-    async def useItemBattle(self, player, chars, players, message, target, escape):
+    async def useItemBattle(self, enc, player, target, players, escape):
         if self.battleitem is False:
             await idchat(self.id, "You can't use %s in this way." % (bold(self.name)))
         else:
@@ -88,11 +88,16 @@ class Item:
             player.focus = min(player.focus + ceil(player.get('maxfocus') * (self.curefocus / 100)), player.get('maxfocus'))
             player.mana = min(player.mana + ceil(player.get('maxmana') * (self.curemana / 100)), player.get('maxmana'))
             if self.curestatus == 0:
-                await self.clearStatusEffects()
-                await self.clearStatChanges()
+                await player.clearStatusEffects()
+            elif self.curestatus != -1:
+                i = 0
+                for status in player.status:
+                    i += 1
+                    if i == self.curestatus:
+                        player.status[status] = False
             for stat in player.statchange:
                 player.statchange[stat] += self.buff[stat]
-            await target.evaluateStatus(player, message, self.statusinflict, self.statuschance)
+            await enc.evaluateStatus(target, self.statusinflict, self.statuschance)
             player.inventory.remove(self)
             if self.name == 'Flask of Shadows':
                 await idchat(self.id, "You escape!")
