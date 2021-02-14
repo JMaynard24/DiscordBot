@@ -41,7 +41,7 @@ statuschance: 6
 moneyaward: 5
 expaward: 3
 droplist.Bloody Shiv: 20
-description: "Small chance to bleed - During moments of clarity, he reaches for a sharp crude shiv black with old blood."
+description: "Small chance to bleed\nDuring moments of clarity, he reaches for a sharp crude shiv black with old blood."
 damagetext: "The madman strikes out with reckless abandon for {damage} damage!"
 nodamagetext: "In his crazed state, the man feels no pain. You deal no damage."
 crittext: "The lunatic's shiv finds its way between your ribs for {damage} critical damage!"
@@ -58,7 +58,7 @@ moneyaward: 7
 expaward: 5
 droplist.Green Herb: 80
 droplist.Lost Ring: 15
-description: "Small chance to poison - You can see dead insects speckle the surface of the putrid mass."
+description: "Small chance to poison\nYou can see dead insects speckle the surface of the putrid mass."
 damagetext: "The mold belches a noxious gas! You take {damage} damage."
 nodamagetext: "Your blow sinks softly into the mold for no damage!"
 crittext: "The vile blob spits corrosive bile at you for {damage} critical damage!"
@@ -94,7 +94,7 @@ droplist.Bludgeon: 10
 droplist.Weak Potion: 70
 droplist.Leather Cuirass: 10
 inventory: ["Weak Potion"]
-description: "Small chance to stun - His bludgeon looks like it could pack quite the wallop."
+description: "Small chance to stun\nHis bludgeon looks like it could pack quite the wallop."
 damagetext: "The prison guard smiles wildly and strikes for {damage} damage!"
 nodamagetext: "The guard manages to block with his bludgeon! You deal no damage."
 crittext: "The guard's bludgeon meets your temple for {damage} critical damage!"
@@ -120,7 +120,7 @@ droplist.Leather Cuirass: 25
 droplist.Knucklebones: 10
 inventory: ["Weak Potion", "Weak Potion"]
 unlocklocations: ["Tarrow", "Eldergrimm"]
-description: "Small chance to stun - A man who delights in the pain of others, he keeps the knucklebones of a victim of his torture around his neck as a warning to any who dares defy him."
+description: "Small chance to stun\nA man who delights in the pain of others, he keeps the knucklebones of a victim of his torture around his neck as a warning to any who dares defy him."
 damagetext: "The warden cackles madly and attacks for {damage} damage! \"You're never getting out of here!\""
 nodamagetext: "The warden parries your blow and laughs! You deal no damage."
 crittext: "The warden's whip snaps around your neck as his sword leaves a red gash in your flesh for {damage} critical damage!"

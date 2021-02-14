@@ -1,5 +1,5 @@
 from RPGFiles.lookup import MONSTER, ENCOUNTERS, LOCATION, ITEM, TECH, State, EncType
-from text_formatting import idchat, bold, unbold, rpgChat, smartCapitalize
+from text_formatting import idchat, bold, unbold, blockify, rpgChat, smartCapitalize
 
 from random import randint, choice
 from math import ceil, floor
@@ -443,11 +443,11 @@ class Encounter:
         elif player.lastmessage == '-check':
             for player in self.players:
                 if player.name == player.name:
-                    await idchat(player.id, ("%s - Life: %s - Will: %s - Power: %s - Guard: %s - Speed: %s - Luck: %s - %s" %
-                                             (target.name, target.life, (target.will + target.statchange['will']),
-                                              (target.power + target.statchange['power']), (target.guard + target.statchange['guard']),
-                                              (target.speed + target.statchange['speed']),
-                                              (target.luck + target.statchange['luck']), target.description)))
+                    await idchat(player.id, blockify(("%s\n Life: %s\n Will: %s\nPower: %s\nGuard: %s\nSpeed: %s\n Luck: %s\n%s" %
+                                                      (unbold(target.name), target.life, (target.will + target.statchange['will']),
+                                                       (target.power + target.statchange['power']), (target.guard + target.statchange['guard']),
+                                                       (target.speed + target.statchange['speed']),
+                                                       (target.luck + target.statchange['luck']), target.description))))
                 elif player.name == target.name:
                     await idchat(player.id, "%s is checking you out!" % (player.name))
                 else:

@@ -17,7 +17,7 @@ statusinflict: 8
 statuschance: 20
 moneyaward: 50
 expaward: 15
-description: "Chance to bleed - The dog seems suprisingly well fed compared to what you've seen in the forest."
+description: "Chance to bleed\nThe dog seems suprisingly well fed compared to what you've seen in the forest."
 damagetext: "The dog's claws rip at your flesh for {damage} damage!"
 nodamagetext: "The dog sidesteps your blow. No damage!"
 crittext: "The dog's teeth sink into your flesh for {damage} critical damage!"
@@ -32,7 +32,7 @@ statusinflict: 1
 statuschance: 20
 moneyaward: 50
 expaward: 15
-description: "Chance to poison - Catching this bandit off-guard was quite the advantage."
+description: "Chance to poison\nCatching this bandit off-guard was quite the advantage."
 damagetext: "The bandit's arrow slices through your skin for {damage} damage!"
 nodamagetext: "The bandit moves away to create distance between you. No damage!"
 crittext: "The bandit finds thier mark and drives an arrow into your muscle for {damage} critical damage!"
@@ -61,7 +61,7 @@ statusinflict: 1
 statuschance: 50
 moneyaward: 700
 expaward: 80
-description: "High chance to poison - The leader of this camp. You see the liquid dripping from her axe."
+description: "High chance to poison\nThe leader of this camp. You see the liquid dripping from her axe."
 damagetext: "Marley's axe rends your skin for {damage} damage!"
 nodamagetext: "Marley's axe just misses you as you step aside."
 crittext: "Marley's axe catches you off-guard and launches you a few feet into the air for {damage} critical damage!"

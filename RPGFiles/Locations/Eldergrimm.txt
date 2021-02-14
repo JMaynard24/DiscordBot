@@ -67,7 +67,7 @@ moneyaward: 70
 expaward: 13
 droplist.Vine of Nine Tails: 25
 droplist.Green Herb: 60
-description: "Small chance to paralyze - A writhing mass of vines covered in thorns. Crushes the blood from its prey to nourish itself."
+description: "Small chance to paralyze\nA writhing mass of vines covered in thorns. Crushes the blood from its prey to nourish itself."
 damagetext: "You are lashed by thorny vines for {damage} damage!"
 nodamagetext: "The vines move with your attack. You deal no damage!"
 crittext: "The vines lift you off your feet by the throat, strangling you for {damage} critical damage!"
@@ -81,7 +81,7 @@ statusinflict: 1
 statuschance: 20
 moneyaward: 70
 expaward: 13
-description: "Chance to poison - A common adder in the forests across Iodra, this snake strikes with its fangs as well as the poison barbs at the end of its tail. Unsavory folk have been known to dilute its venom and ferment it with grains to create the potent, addictive serum Berserk Brew."
+description: "Chance to poison\nA common adder in the forests across Iodra, this snake strikes with its fangs as well as the poison barbs at the end of its tail. Unsavory folk have been known to dilute its venom and ferment it with grains to create the potent, addictive serum Berserk Brew."
 damagetext: "You're bitten for {damage} damage!"
 nodamagetext: "The snake takes the brunt of your blow with its poison barbs. You deal no damage!"
 crittext: "The snake's poison barbs rake your flesh and its fangs sink deep for {damage} critical damage!"
@@ -103,7 +103,7 @@ droplist.Forest Furs: 20
 droplist.Forest Parma: 20
 unlocklocations: ["Eldergrimm Bandit Camp"]
 inventory: ["Berserk Brew", "Weak Potion"]
-description: "Small chance to poison - These bandits spend most of their time in the forest and have become adapted to its many dangers."
+description: "Small chance to poison\nThese bandits spend most of their time in the forest and have become adapted to its many dangers."
 damagetext: "The bandit's cudgel knocks the wind out of you for {damage} damage!"
 nodamagetext: "The bandit's parma takes the brunt of your blow! You deal no damage!"
 crittext: "The bandit deals a crushing blow sinking his cudgel's barbs into your chest for {damage} critical damage!"
@@ -124,7 +124,7 @@ skills: ["Roar"]
 techchance: 33
 droplist.Claw Token: 15
 unlocklocations: ["The Bad Place"]
-description: "Chance to ??? - Once the proud ruler of Eldergrimm, this great beast has been brought low by a mysterious and terrible scourge."
+description: "Chance to ???\nOnce the proud ruler of Eldergrimm, this great beast has been brought low by a mysterious and terrible scourge."
 damagetext: "A great paw swipes at you dealing {damage} damage!"
 nodamagetext: "The beast swipes away your strike with a brush of its paw. You deal no damage."
 crittext: "The beast swats you away ripping at you with its sharp claws, hurling you roughly into an outcrop of stone for {damage} critical damage!"

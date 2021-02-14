@@ -19,6 +19,7 @@ class Trivia:
         self.categories = categories
         self.questions = []
         self.skip = []
+        self.currentScores = {}
         self.questionAmount = 0
         self.lastAnswer = ['Player', 'Answer']
         self.currentAnswer = 'N/A'
@@ -30,9 +31,12 @@ class Trivia:
     async def stop(self):
         global triviaBot
         await triviaClear()
-        await triviaChat("That is all! Thanks for playing!")
-        await leaderBoards()
+        await triviaChat("Finished the game! Scores:")
+        await leaderBoards(self.currentScores)
+        await triviaChat("Overall:")
+        await leaderBoards(players)
         self.running = False
+        self.currentScores = {}
         self.amount = 0
         self.savePlayers()
         triviaBot = None
@@ -91,6 +95,10 @@ class Trivia:
 
     async def rewardPoints(self, person):
         points = math.floor(self.startTime + 300 - time.time())
+        if person.id in self.currentScores:
+            self.currentScores[person.id] += points
+        else:
+            self.currentScores[person.id] = points
         if person.id in players:
             players[person.id] += points
         else:
@@ -223,21 +231,19 @@ def initializeTrivia():
     loadPlayers()
 
 
-async def leaderBoards():
+async def leaderBoards(list):
     newlist = {}
-    for player in players:
-        newlist[player] = players[player]
+    for player in list:
+        newlist[player] = list[player]
     sortedlist = sorted(newlist.items(), key=operator.itemgetter(1))
     sortedlist.reverse()
     while len(sortedlist) < 10:
         sortedlist.append('No Data')
-    text = "Top 10 players are:\n"
+    text = ""
     count = 0
     while count < 10:
         if sortedlist[count] != 'No Data':
             text += "%s. %s: %s\n" % (count + 1, nameFromID(sortedlist[count][0]), sortedlist[count][1])
-        else:
-            text += "%s. %s\n" % (count + 1, sortedlist[count])
         count += 1
     await triviaChat(blockify(text))
 

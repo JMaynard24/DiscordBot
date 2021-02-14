@@ -2,7 +2,7 @@ traveltext: "This is the bad place."
 
 surroundings: "Looks bad."
 
-encounterchance: {'Creep':(0, 100)}
+encounterchance: {'Creep':(0, 94), '>:{:/.}':(95, 100)}
 
 boss: "The Bad"
 
@@ -22,6 +22,20 @@ description: "You can't shake the feeling..."
 damagetext: "Your skin crawls and you take {damage} damage."
 nodamagetext: "Just some goosebumps..."
 crittext: "You tear some skin from your arm and take {damage} critical damage!"
+
+name: ">:{:/.}"
+opening: "888888888888888888888888888888888888888888888888888888888888888888888888888888"
+life: 9999
+power: 999999
+guard: 999999
+speed: 1
+will: 1
+moneyaward: 0
+expaward: 0
+description: "?????????????????"
+damagetext: "player.life -= {damage}"
+nodamagetext: "..."
+crittext: "player.life -= {damage}"
 
 name: "The Bad"
 opening: "You feel as if you are going to have a bad time."
