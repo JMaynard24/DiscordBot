@@ -280,16 +280,12 @@ class Player(Character):
 
 
     async def displayTravel(self):
-        if len(self.allowedlocations) < 3:
-            stringofitems = bold(self.allowedlocations[0])
-        else:
-            stringofitems = bold(self.allowedlocations[0]) + ','
-        if len(self.allowedlocations) > 2:
-            for item in self.allowedlocations[1:len(self.allowedlocations) - 1]:
-                stringofitems += (' %s,' % bold(item))
-        if len(self.allowedlocations) > 1:
-            stringofitems += ' and %s' % bold(self.allowedlocations[len(self.allowedlocations) - 1])
-        await idchat(self.id, "You can travel to: %s" % (stringofitems))
+        loc = self.allowedlocations
+        loc.sort()
+        stringofitems = ''
+        for i in loc:
+            stringofitems += i + "\n"
+        await idchat(self.id, "Travel Locations:\n%s" % (blockify(stringofitems)))
 
 
     async def travel(self, location):
