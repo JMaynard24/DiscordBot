@@ -7,9 +7,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-
-TEST = True
-
 intents = discord.Intents.default()
 intents.members = True
 client = discord.Client(intents=intents)
@@ -25,12 +22,8 @@ async def on_ready():
     global triviaChannel
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(name='Discord RPG'))
-    if TEST is True:
-        rpgChannel = client.get_channel(eval(os.environ.get("test-rpg")))
-        triviaChannel = client.get_channel(eval(os.environ.get("test-trivia")))
-    else:
-        rpgChannel = client.get_channel(eval(os.environ.get("real-rpg")))
-        triviaChannel = client.get_channel(eval(os.environ.get("real-trivia")))
+    rpgChannel = client.get_channel(eval(os.environ.get("rpg")))
+    triviaChannel = client.get_channel(eval(os.environ.get("trivia")))
     text_formatting.setRPGChannel(rpgChannel)
     text_formatting.setTriviaChannel(triviaChannel)
     text_formatting.setClient(client)
@@ -51,9 +44,5 @@ async def on_message(message):
     elif message.channel == triviaChannel:
         await trivia.handleTriviaCommand(message)
 
-test = input("T for test: ")
 
-if test in "Tt":
-    client.run(os.environ.get("test-token"))
-else:
-    client.run(os.environ.get("real-token"))
+client.run(os.environ.get("token"))
