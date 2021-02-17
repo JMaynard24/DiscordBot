@@ -5,7 +5,7 @@ from random import randint
 from os.path import isfile
 
 import RPGFiles.Encounter as Encounter
-import image_editor
+import RPGFiles.image_editor as image_editor
 import os
 import operator
 import asyncio

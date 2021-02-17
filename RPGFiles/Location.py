@@ -5,7 +5,7 @@ from math import floor
 from MathUtility import is_number
 
 import os
-import image_editor
+import RPGFiles.image_editor as image_editor
 import copy
 import asyncio
 
