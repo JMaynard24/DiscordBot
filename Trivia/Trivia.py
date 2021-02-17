@@ -8,6 +8,7 @@ from random import randint
 from text_formatting import triviaChat, blockify, nameFromID, triviaClear
 from Trivia.Question import questionPool, loadQuestions, addQuestion
 from MathUtility import is_number
+from Trivia.lookup import Commands
 
 players = {}
 
@@ -220,6 +221,13 @@ async def handleTriviaCommand(message):
             await triviaChat("The trivia bot is not running!")
     elif message.content == '!leaderboards' or message.content == '!lbs':
         await leaderBoards()
+    elif message.content == '!commands' or message.content == '!cmds':
+        text_block = ''
+        for type in Commands:
+            text_block += type + '\n'
+            for command in Commands[type]:
+                text_block += "  " + command + "  :  " + Commands[type][command] + '\n'
+        await triviaChat(blockify(text_block))
     else:
         if triviaBot is not None:
             triviaBot.lastAnswer = [message.author, message.content]
