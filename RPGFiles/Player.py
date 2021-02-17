@@ -284,7 +284,10 @@ class Player(Character):
         loc.sort()
         stringofitems = ''
         for i in loc:
-            stringofitems += i + "\n"
+            if i == self.location.name:
+                stringofitems += i + " <-- You are here!\n"
+            else:
+                stringofitems += i + "\n"
         await idchat(self.id, "Travel Locations:\n%s" % (blockify(stringofitems)))
 
 
