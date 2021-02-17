@@ -1,5 +1,6 @@
 Trivia/Files/Players.txt
 RPGFiles/Players/
+RPGFiles/admin.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
