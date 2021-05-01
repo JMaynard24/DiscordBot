@@ -62,7 +62,7 @@ class Player(Character):
         elif self.lastmessage == '-location' or self.lastmessage == '-loc':
             await idchat(self.id, ("You are at %s!" % (bold(PLAYER[self.name].location.name))))
         elif self.lastmessage == '-commands all' or self.lastmessage == '-cmds all':
-            await allCommands()
+            await allCommands(self.id)
         elif self.lastmessage == '-commands' or self.lastmessage == '-cmds':
             if self.state == State.ENCOUNTER:
                 await idchat(self.id, blockify(createCommandsBlock(['Battle', 'Inventory', 'Other', 'Debug'])))

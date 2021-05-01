@@ -196,12 +196,12 @@ def createCommandsBlock(types):
 # -----------------------------------------------------------------------------
 
 
-async def allCommands(message):
+async def allCommands(id):
     types = []
     for type in Commands:
         types.append(type)
         if len(types) == 4:
-            await chat(message, blockify(createCommandsBlock(types)))
+            await idchat(id, blockify(createCommandsBlock(types)))
             types = []
 
 

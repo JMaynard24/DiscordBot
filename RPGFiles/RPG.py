@@ -20,7 +20,7 @@ async def startRPG(message):
         newchar.discorduser = message.author
         await newchar.setPlayer()
         await newchar.save()
-        await rpgChat(message, "%s has joined the game at level 1!" % message.author.name)
+        await rpgChat("%s has joined the game at level 1!" % message.author.name)
         await idchat(newchar.id, 'Welcome to the world of Iodra. ' +
                                  'You awake in your cell in the Prison of Hope, a name that mocks all held within its walls. ' +
                                  'Imprisoned under ostensibly false charges, you seek one thing... Escape, at all costs. ' +
